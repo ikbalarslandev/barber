@@ -32,7 +32,7 @@ const Booking = ({ business }: { business: any }) => {
         {business?.products.map((product: any) => (
           <button
             key={product.id}
-            className="flex gap-2 border items-center justify-between px-5 py-2"
+            className="flex gap-2 border items-center justify-between px-5 py-2 rounded"
             onClick={() => handleProductClick(product)}
           >
             <div className="flex gap-2 items-center">
@@ -44,7 +44,11 @@ const Booking = ({ business }: { business: any }) => {
         ))}
       </div>
 
-      <DrawerComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+      <DrawerComponent
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        products={business.products}
+      />
     </main>
   );
 };
