@@ -11,7 +11,7 @@ model Business {
   id       String    @id @default(cuid())
   name     String
   phone    String
-  email    String
+  email    String   @unique
   products Product[]
   bookings Booking[]
 }
