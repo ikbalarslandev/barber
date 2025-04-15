@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import { request } from "@/services/axios";
 
 const formSchema = z.object({
   phone: z
@@ -71,7 +72,11 @@ const ContactPage = () => {
       businessId: details?.businessId,
     };
 
-    console.log(requestBody);
+    request({
+      type: "post",
+      endpoint: "booking",
+      payload: requestBody,
+    });
   }
 
   return (
