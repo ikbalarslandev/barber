@@ -42,6 +42,10 @@ const DrawerComponent = ({
     }
   };
 
+  const handleSubmit = () => {
+    router.push("/date");
+  };
+
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerContent>
@@ -77,7 +81,10 @@ const DrawerComponent = ({
         </div>
 
         <DrawerFooter>
-          <DrawerClose className="border rounded-lg py-2 bg-gray-600 text-white">
+          <DrawerClose
+            onClick={handleSubmit}
+            className="border rounded-lg py-2 bg-gray-600 text-white"
+          >
             Sonraki
           </DrawerClose>
         </DrawerFooter>
