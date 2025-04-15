@@ -13,5 +13,7 @@ const createBooking = async (requestBody: TRequestBody) => {
     requestBody;
 
   console.log("Request Body:", requestBody);
+
+  return requestBody;
 };
 export default createBooking;

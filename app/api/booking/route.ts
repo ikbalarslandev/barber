@@ -5,9 +5,9 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    await createBooking(body);
+    const booking = await createBooking(body);
 
-    return NextResponse.json(body, { status: 201 });
+    return NextResponse.json(booking, { status: 201 });
   } catch (error) {
     console.error("[POST /api/property]", error);
     return NextResponse.json(
