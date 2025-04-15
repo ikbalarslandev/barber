@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { format, addMinutes, isBefore } from "date-fns";
 import { tr } from "date-fns/locale";
+import DateAlert from "@/components/Alert";
 
 const generateTimeSlots = (start: string, end: string, interval = 30) => {
   const today = new Date();
@@ -25,8 +26,15 @@ const generateTimeSlots = (start: string, end: string, interval = 30) => {
 };
 
 const DatePage = () => {
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
+
   const [selected, setSelected] = useState<string | null>(null);
   const timeSlots = generateTimeSlots("07:30", "00:00", 30);
+
+  const handleClick = (slot: string) => {
+    setSelected(slot);
+    setIsAlertOpen(true);
+  };
 
   return (
     <div className="p-4">
@@ -38,7 +46,7 @@ const DatePage = () => {
         {timeSlots.map((slot) => (
           <button
             key={slot}
-            onClick={() => setSelected(slot)}
+            onClick={() => handleClick(slot)}
             className={`border px-4 py-2 rounded ${
               selected === slot ? "bg-black text-white" : "bg-white"
             }`}
@@ -46,12 +54,13 @@ const DatePage = () => {
             {slot}
           </button>
         ))}
+
+        <DateAlert
+          selected={selected}
+          isAlertOpen={isAlertOpen}
+          setIsAlertOpen={setIsAlertOpen}
+        />
       </div>
-      {selected && (
-        <p className="mt-6 text-center font-medium">
-          Selected Time: <span className="text-blue-600">{selected}</span>
-        </p>
-      )}
     </div>
   );
 };
