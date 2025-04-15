@@ -1,6 +1,11 @@
-// app/api/property/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/prisma";
+
+type ProductInput = {
+  name: string;
+  duration?: number;
+  price: number;
+};
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,7 +21,7 @@ export async function POST(req: NextRequest) {
         products:
           products && products.length > 0
             ? {
-                create: products.map((product: any) => ({
+                create: products.map((product: ProductInput) => ({
                   name: product.name,
                   duration: product.duration ?? 30,
                   price: product.price,
