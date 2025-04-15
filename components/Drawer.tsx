@@ -4,7 +4,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -26,13 +25,17 @@ const DrawerComponent = ({
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>
-            {JSON.stringify(existingProductIds)}.
-          </DrawerDescription>
+          <DrawerTitle></DrawerTitle>
+          <div className="flex flex-col gap-2">
+            {existingProductIds.map((productId) => (
+              <p key={productId}>Product ID: {productId}</p>
+            ))}
+          </div>
         </DrawerHeader>
         <DrawerFooter>
-          <DrawerClose>x</DrawerClose>
+          <DrawerClose className="border rounded-lg py-2 bg-gray-600 text-white">
+            Sonraki
+          </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
