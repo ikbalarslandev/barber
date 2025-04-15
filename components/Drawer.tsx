@@ -1,4 +1,5 @@
 "use client";
+
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   Drawer,
@@ -10,7 +11,6 @@ import {
 } from "@/components/ui/drawer";
 import { FaTrashAlt } from "react-icons/fa";
 import { TProduct } from "@/prisma/types";
-
 const DrawerComponent = ({
   isOpen,
   setIsOpen,
@@ -44,6 +44,7 @@ const DrawerComponent = ({
   };
 
   const handleSubmit = () => {
+    localStorage.setItem("productIds", JSON.stringify(existingProductIds));
     router.push("/date");
   };
 

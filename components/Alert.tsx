@@ -22,7 +22,7 @@ const DateAlert = ({
   const router = useRouter();
 
   const handleSubmit = () => {
-    console.log("Selected time:", selected);
+    localStorage.setItem("selectedHour", selected || "");
     router.push("/contact");
   };
 

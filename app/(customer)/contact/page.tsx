@@ -14,6 +14,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
+import { TProduct } from "@/prisma/types";
+import { getProducts } from "@/actions/getProducts";
 
 const formSchema = z.object({
   phone: z
@@ -40,11 +43,54 @@ const ContactPage = () => {
     },
   });
 
+  const [details, setDetails] = useState<{
+    hour: string;
+    productIds: string[];
+    businessId: string;
+  }>();
+
+  const [selectedProducts, setSelectedProducts] = useState<TProduct[]>([]);
+
+  useEffect(() => {
+    const businessId = localStorage.getItem("businessId");
+    const hour = localStorage.getItem("selectedHour");
+    const productIds = localStorage.getItem("productIds");
+
+    setDetails({
+      hour: hour ?? "",
+      productIds: JSON.parse(productIds ?? "[]"),
+      businessId: businessId ?? "",
+    });
+
+    const fetchProducts = async () => {
+      if (!businessId) return;
+      const business = await getProducts(businessId);
+      const allBusinessProducts = business?.products || [];
+      console.log(allBusinessProducts, "allBusinessProducts");
+      const sProducts = allBusinessProducts.filter((product) =>
+        JSON.parse(productIds ?? "[]")?.includes(product.id)
+      );
+      console.log(sProducts, "sProducts");
+      setSelectedProducts(sProducts);
+    };
+    fetchProducts();
+  }, []);
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     const { phone, name, email } = values;
 
-    const fullPhone = `+90${phone}`;
-    console.log("Telefon Numarası:", fullPhone, "Ad:", name, "E-posta:", email);
+    console.log(details);
+
+    const requestBody = {
+      c_phone: `+90${phone}`,
+      c_name: name,
+      c_email: email,
+      hour: details?.hour,
+      products: selectedProducts,
+      businessId: details?.businessId,
+    };
+
+    console.log(requestBody);
   }
 
   return (

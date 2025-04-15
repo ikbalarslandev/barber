@@ -3,12 +3,17 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { CiCirclePlus } from "react-icons/ci";
 import DrawerComponent from "../Drawer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TBusiness, TProduct } from "@/prisma/types";
 
 const Booking = ({ business }: { business: TBusiness }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const businessId = business.id;
+    localStorage.setItem("businessId", businessId);
+  }, [business]);
 
   const [isOpen, setIsOpen] = useState(false);
 
