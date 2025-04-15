@@ -2,10 +2,14 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { CiCirclePlus } from "react-icons/ci";
+import DrawerComponent from "../Drawer";
+import { useState } from "react";
 
 const Booking = ({ business }: { business: any }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleProductClick = (product: any) => {
     const current = new URLSearchParams(searchParams.toString());
@@ -17,6 +21,8 @@ const Booking = ({ business }: { business: any }) => {
       current.append("productId", id);
       router.replace(`?${current.toString()}`, { scroll: false });
     }
+
+    setIsOpen(true);
   };
 
   return (
@@ -37,6 +43,8 @@ const Booking = ({ business }: { business: any }) => {
           </button>
         ))}
       </div>
+
+      <DrawerComponent isOpen={isOpen} setIsOpen={setIsOpen} />
     </main>
   );
 };

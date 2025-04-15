@@ -1,3 +1,5 @@
+"use client";
+import { useSearchParams } from "next/navigation";
 import {
   Drawer,
   DrawerClose,
@@ -6,17 +8,28 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
 } from "@/components/ui/drawer";
 
-const DrawerComponent = () => {
+const DrawerComponent = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}) => {
+  const searchParams = useSearchParams();
+  const current = new URLSearchParams(searchParams.toString());
+
+  const existingProductIds = current.getAll("productId");
+
   return (
-    <Drawer>
-      <DrawerTrigger>Open</DrawerTrigger>
+    <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          <DrawerDescription>
+            {JSON.stringify(existingProductIds)}.
+          </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter>
           <DrawerClose>x</DrawerClose>
