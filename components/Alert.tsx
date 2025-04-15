@@ -8,6 +8,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { useRouter } from "next/navigation";
 
 const DateAlert = ({
   isAlertOpen,
@@ -18,8 +19,11 @@ const DateAlert = ({
   setIsAlertOpen: (isOpen: boolean) => void;
   selected: string | null;
 }) => {
+  const router = useRouter();
+
   const handleSubmit = () => {
     console.log("Selected time:", selected);
+    router.push("/contact");
   };
 
   return (
