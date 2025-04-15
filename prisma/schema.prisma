@@ -1,12 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
 }
 
 datasource db {
@@ -20,6 +13,7 @@ model Business {
   phone    String
   email    String
   products Product[]
+  bookings Booking[]
 }
 
 model Product {
@@ -29,18 +23,19 @@ model Product {
   price      Float
   businessId String
   business   Business @relation(fields: [businessId], references: [id])
-
-  bookings Booking[] @relation("BookingToProduct")
 }
 
 model Booking {
-  id    String   @id @default(cuid())
-  date  DateTime
+  id      String   @id @default(cuid())
+  date    DateTime
+  note    String?
   //customer
   c_name  String
   c_phone String
   c_email String
 
-  //
-  products Product[] @relation("BookingToProduct")
+  //product
+  products   String[]
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id])
 }
