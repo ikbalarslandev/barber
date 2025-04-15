@@ -9,6 +9,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { FaTrashAlt } from "react-icons/fa";
+import { TProduct } from "@/prisma/types";
 
 const DrawerComponent = ({
   isOpen,
@@ -17,7 +18,7 @@ const DrawerComponent = ({
 }: {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  products: any[];
+  products: TProduct[];
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -29,7 +30,7 @@ const DrawerComponent = ({
     existingProductIds.includes(product.id.toString())
   );
 
-  const handleDelete = (product: any) => {
+  const handleDelete = (product: TProduct) => {
     const current = new URLSearchParams(searchParams.toString());
     const id = product.id.toString();
 

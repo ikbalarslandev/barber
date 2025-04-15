@@ -4,14 +4,15 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { CiCirclePlus } from "react-icons/ci";
 import DrawerComponent from "../Drawer";
 import { useState } from "react";
+import { TBusiness, TProduct } from "@/prisma/types";
 
-const Booking = ({ business }: { business: any }) => {
+const Booking = ({ business }: { business: TBusiness }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleProductClick = (product: any) => {
+  const handleProductClick = (product: TProduct) => {
     const current = new URLSearchParams(searchParams.toString());
     const id = product.id.toString();
 
@@ -29,7 +30,7 @@ const Booking = ({ business }: { business: any }) => {
     <main>
       <h1 className="text-center text-xl font-bold mt-4">{business?.name}</h1>
       <div className="flex flex-col gap-4 mx-3 mt-5">
-        {business?.products.map((product: any) => (
+        {business?.products.map((product: TProduct) => (
           <button
             key={product.id}
             className="flex gap-2 border items-center justify-between px-5 py-2 rounded"
