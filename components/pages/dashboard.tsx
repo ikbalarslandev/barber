@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { format, isBefore, setHours, setMinutes, isSameDay } from "date-fns";
-import { tr } from "date-fns/locale";
+import { is, tr } from "date-fns/locale";
 import OwnerAlert from "@/components/OwnerAlert";
 import { generateTimeSlots } from "@/lib/utils";
 import { TBusiness } from "@/prisma/types";
@@ -52,14 +52,14 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
               className={`border px-4 py-2 rounded transition-all duration-150
                 ${
                   isBlocked
-                    ? "border-black bg-gray-200 text-gray-400"
-                    : isBooked
-                    ? "bg-green-500/35 border-gray-700"
+                    ? `bg-blue-100 text-gray-400 ${
+                        isBooked && "border-gray-700"
+                      }`
                     : disabled
-                    ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    : selected === slot
-                    ? ""
-                    : "bg-white"
+                    ? `bg-gray-50 text-gray-400 cursor-not-allowed ${
+                        isBooked && "border-gray-700"
+                      }`
+                    : `bg-white ${isBooked && "border-gray-700"}`
                 }
               `}
             >

@@ -8,6 +8,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { request } from "@/services/axios";
+import { isBefore, setHours, setMinutes } from "date-fns";
 
 const OwnerAlert = ({
   isAlertOpen,
@@ -48,6 +49,13 @@ const OwnerAlert = ({
     }
   };
 
+  const isSlotPast = () => {
+    const slot = selected || "";
+    const [hour, minute] = slot.split(":").map(Number);
+    const slotDate = setMinutes(setHours(new Date(), hour), minute);
+    return isBefore(slotDate, new Date());
+  };
+
   return (
     <AlertDialog open={isAlertOpen} onOpenChange={setIsAlertOpen}>
       <AlertDialogContent>
@@ -55,12 +63,13 @@ const OwnerAlert = ({
           <AlertDialogTitle>{selected} </AlertDialogTitle>
         </AlertDialogHeader>
 
-        <AlertDialogAction onClick={handleSubmit} className="bg-gray-600">
-          {isBlocked
-            ? "Bu Saati Rezervasyona Aç"
-            : "Bu Saatte Rezervasyon Alma"}
-        </AlertDialogAction>
-
+        {!isSlotPast() && (
+          <AlertDialogAction onClick={handleSubmit} className="bg-gray-600">
+            {isBlocked
+              ? "Bu Saati Rezervasyona Aç"
+              : "Bu Saatte Rezervasyon Alma"}
+          </AlertDialogAction>
+        )}
         <AlertDialogFooter>
           <AlertDialogCancel className="border-gray-600">
             Kapat
