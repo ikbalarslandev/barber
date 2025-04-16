@@ -14,7 +14,14 @@ const addBlock = async (body: TRequestBody) => {
   });
 
   const previousBlockeds = business?.blockedHours;
-  const newBlockeds = previousBlockeds ? [...previousBlockeds, hour] : [hour];
+  const isExists = previousBlockeds?.includes(hour);
+
+  if (!previousBlockeds && !isExists) {
+    throw new Error("No blocked hours found");
+  }
+  const newBlockeds = isExists
+    ? previousBlockeds?.filter((blockedHour) => blockedHour !== hour)
+    : [...(previousBlockeds || []), hour];
 
   const updatedBusiness = await prisma.business.update({
     where: {

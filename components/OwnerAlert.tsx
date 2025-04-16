@@ -3,7 +3,6 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -14,20 +13,39 @@ const OwnerAlert = ({
   isAlertOpen,
   setIsAlertOpen,
   selected,
+  isBlocked,
+  setBlockedHours,
 }: {
   isAlertOpen: boolean;
   setIsAlertOpen: (isOpen: boolean) => void;
   selected: string | null;
+  isBlocked?: boolean;
+  setBlockedHours: React.Dispatch<React.SetStateAction<string[]>>;
 }) => {
-  const handleSubmit = () => {
-    request({
-      type: "post",
-      endpoint: "block",
-      payload: {
-        businessId: localStorage.getItem("businessId"),
-        hour: selected,
-      },
-    });
+  const handleSubmit = async () => {
+    if (!selected) return;
+
+    try {
+      await request({
+        type: "post",
+        endpoint: "block",
+        payload: {
+          businessId: localStorage.getItem("businessId"),
+          hour: selected,
+        },
+      });
+
+      setBlockedHours(
+        (prev) =>
+          isBlocked
+            ? prev.filter((hour) => hour !== selected) // unblock
+            : [...prev, selected] // block
+      );
+
+      setIsAlertOpen(false);
+    } catch (error) {
+      console.error("Failed to update blocked hour:", error);
+    }
   };
 
   return (
@@ -38,7 +56,9 @@ const OwnerAlert = ({
         </AlertDialogHeader>
 
         <AlertDialogAction onClick={handleSubmit} className="bg-gray-600">
-          Bu Saatte Rezervasyon Alma
+          {isBlocked
+            ? "Bu Saati Rezervasyona Aç"
+            : "Bu Saatte Rezervasyon Alma"}
         </AlertDialogAction>
 
         <AlertDialogFooter>
@@ -50,4 +70,5 @@ const OwnerAlert = ({
     </AlertDialog>
   );
 };
+
 export default OwnerAlert;
