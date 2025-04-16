@@ -51,10 +51,10 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
               disabled={isBooked || isBlocked ? false : disabled}
               className={`border px-4 py-2 rounded transition-all duration-150
                 ${
-                  isBooked
-                    ? "bg-green-500/35 border-gray-700"
-                    : isBlocked
+                  isBlocked
                     ? "border-black bg-gray-200 text-gray-400"
+                    : isBooked
+                    ? "bg-green-500/35 border-gray-700"
                     : disabled
                     ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                     : selected === slot
@@ -73,7 +73,7 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
           selected={selected}
           isAlertOpen={isAlertOpen}
           setIsAlertOpen={setIsAlertOpen}
-          setBlockedHours={setBlockedHours} // ✅ pass this
+          setBlockedHours={setBlockedHours}
         />
       </div>
     </div>
