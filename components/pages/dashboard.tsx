@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { format, isBefore, setHours, setMinutes, isSameDay } from "date-fns";
 import { tr } from "date-fns/locale";
-import DateAlert from "@/components/Alert";
+import OwnerAlert from "@/components/OwnerAlert";
 import { generateTimeSlots } from "@/lib/utils";
 import { TBusiness } from "@/prisma/types";
 
@@ -11,7 +11,9 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
 
-  const timeSlots = generateTimeSlots("07:30", "00:00", 30);
+  const [startHour, endHour] = business.workingHours.slice(0, 2);
+
+  const timeSlots = generateTimeSlots(startHour, endHour, 30);
   const now = new Date();
 
   const bookingsForToday = business.bookings.filter((booking) => {
@@ -22,7 +24,6 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
   const handleClick = (slot: string) => {
     setSelected(slot);
     setIsAlertOpen(true);
-    console.log("products", bookingsForToday);
   };
 
   const isSlotPast = (slot: string) => {
@@ -67,7 +68,7 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
           );
         })}
 
-        <DateAlert
+        <OwnerAlert
           selected={selected}
           isAlertOpen={isAlertOpen}
           setIsAlertOpen={setIsAlertOpen}

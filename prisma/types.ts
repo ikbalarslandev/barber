@@ -25,6 +25,8 @@ export interface TBusiness {
   name: string;
   phone: string;
   email: string;
+  workingHours: string[];
+  blockedHours: string[];
   products: TProduct[];
   bookings: TBooking[];
 }

@@ -8,10 +8,14 @@ datasource db {
 }
 
 model Business {
-  id       String    @id @default(cuid())
-  name     String
-  phone    String
-  email    String   @unique
+  id    String @id @default(cuid())
+  name  String
+  phone String
+  email String @unique
+
+  workingHours String[] @default(["07:30", "00:00"])
+  blockedHours String[]
+
   products Product[]
   bookings Booking[]
 }
@@ -26,8 +30,8 @@ model Product {
 }
 
 model Booking {
-  id      String   @id @default(cuid())
-  hour    String  //HH:mm
+  id   String @id @default(cuid())
+  hour String //HH:mm
 
   //customer
   c_name  String
