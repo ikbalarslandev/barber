@@ -41,25 +41,32 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
         {timeSlots.map((slot) => {
           const disabled = isSlotPast(slot);
 
+          const isBooked = bookingsForToday.some(
+            (booking) => booking.hour === slot
+          );
+
           return (
             <button
               key={slot}
-              onClick={() => !disabled && handleClick(slot)}
-              disabled={disabled}
+              onClick={() => (isBooked || !disabled) && handleClick(slot)}
+              disabled={isBooked ? false : disabled}
               className={`border px-4 py-2 rounded transition-all duration-150
-                ${
-                  disabled
-                    ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                    : selected === slot
-                    ? "bg-black text-white"
-                    : "bg-white"
-                }
-              `}
+        ${
+          isBooked
+            ? "bg-green-500/35 border-gray-700"
+            : disabled
+            ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+            : selected === slot
+            ? "bg-black text-white"
+            : "bg-white"
+        }
+      `}
             >
               {slot}
             </button>
           );
         })}
+
         <DateAlert
           selected={selected}
           isAlertOpen={isAlertOpen}
