@@ -12,7 +12,9 @@ const BusinessLogin = () => {
 
     if (email.trim()) {
       // Set cookie manually
-      document.cookie = `email=${email}; path=/; max-age=${60 * 60 * 24}`; // 1 day
+      document.cookie = `email=${email}; path=/; max-age=${
+        60 * 60 * 24 * 1000
+      }`; // 1 day
 
       // Redirect to dashboard
       router.push("/dashboard");
