@@ -13,9 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { request } from "@/services/axios";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   phone: z
@@ -77,6 +77,10 @@ const ContactPage = () => {
       endpoint: "booking",
       payload: requestBody,
     });
+
+    toast.success(
+      "Rezervasyon talebiniz alınmıştır. Detaylar için e-posta adresinizi kontrol ediniz."
+    );
   }
 
   return (
