@@ -101,14 +101,7 @@ const ContactPage = () => {
                     <span className="text-sm text-muted-foreground mr-2">
                       +90
                     </span>
-                    <Input
-                      type="tel"
-                      placeholder="555 123 45 67"
-                      {...field}
-                      className={cn(
-                        "border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
-                      )}
-                    />
+                    <Input type="tel" placeholder="555 123 45 67" {...field} />
                   </div>
                 </FormControl>
 
@@ -124,14 +117,7 @@ const ContactPage = () => {
                 <FormLabel>Adınız</FormLabel>
                 <FormControl>
                   <div className="flex items-center border rounded-md px-3 py-2">
-                    <Input
-                      type="text"
-                      placeholder="Adınız"
-                      {...field}
-                      className={cn(
-                        "border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
-                      )}
-                    />
+                    <Input type="text" placeholder="Adınız" {...field} />
                   </div>
                 </FormControl>
 
@@ -151,9 +137,6 @@ const ContactPage = () => {
                       type="email"
                       placeholder="E-posta Adresiniz"
                       {...field}
-                      className={cn(
-                        "border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
-                      )}
                     />
                   </div>
                 </FormControl>
