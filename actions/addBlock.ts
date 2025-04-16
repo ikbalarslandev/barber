@@ -1,5 +1,6 @@
 import prisma from "@/prisma";
 import { isBefore, setHours, setMinutes } from "date-fns";
+import { getIstanbulTime } from "@/lib/time";
 
 interface TRequestBody {
   businessId: string;
@@ -19,8 +20,8 @@ const addBlock = async (body: TRequestBody) => {
 
   const isSlotPast = (slot: string) => {
     const [hour, minute] = slot.split(":").map(Number);
-    const slotDate = setMinutes(setHours(new Date(), hour), minute);
-    return isBefore(slotDate, new Date());
+    const slotDate = setMinutes(setHours(getIstanbulTime(), hour), minute);
+    return isBefore(slotDate, getIstanbulTime());
   };
 
   const previousBlockeds = dbBlockeds?.filter((slot) => {

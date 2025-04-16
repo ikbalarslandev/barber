@@ -6,17 +6,24 @@ import { tr } from "date-fns/locale";
 import DateAlert from "@/components/Alert";
 import { generateTimeSlots } from "@/lib/utils";
 import { getIstanbulTime } from "@/lib/time";
+import { TBusiness } from "@/prisma/types";
 
-const DatePage = () => {
+const DatePage = ({ business }: { business: TBusiness }) => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
+  const [open, close] = business.workingHours.slice(0, 2);
 
-  const allSlots = generateTimeSlots("07:30", "00:00", 30);
+  const allSlots = generateTimeSlots(open, close, 30);
 
   const now = getIstanbulTime();
 
   // Filter only future time slots
   const timeSlots = allSlots.filter((slot) => {
+    const blockedArr = business.blockedHours;
+    if (blockedArr.includes(slot)) {
+      return false;
+    }
+
     const [hour, minute] = slot.split(":").map(Number);
     const slotTime = getIstanbulTime();
     slotTime.setHours(hour, minute, 0, 0);

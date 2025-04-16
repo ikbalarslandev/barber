@@ -45,7 +45,7 @@ const DrawerComponent = ({
 
   const handleSubmit = () => {
     localStorage.setItem("productIds", JSON.stringify(existingProductIds));
-    router.push("/date");
+    router.push(`/date/${localStorage.getItem("businessId")}`);
   };
 
   return (
