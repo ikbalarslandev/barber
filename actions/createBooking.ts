@@ -8,12 +8,30 @@ interface TRequestBody {
   productIds: string[];
   businessId: string;
 }
-const createBooking = async (requestBody: TRequestBody) => {
-  const { c_phone, c_name, c_email, hour, productIds, businessId } =
-    requestBody;
+const createBooking = async (body: TRequestBody) => {
+  const { c_phone, c_name, c_email, hour, productIds, businessId } = body;
 
-  console.log("Request Body:", requestBody);
+  const products = await prisma.product.findMany({
+    where: {
+      id: {
+        in: productIds,
+      },
+    },
+  });
 
-  return requestBody;
+  const booking = await prisma.booking.create({
+    data: {
+      c_phone,
+      c_name,
+      c_email,
+      hour,
+      businessId,
+      products: products.map((product) => product.name),
+    },
+  });
+
+  console.log("Booking created", booking);
+
+  return booking;
 };
 export default createBooking;
