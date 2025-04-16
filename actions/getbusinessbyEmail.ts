@@ -4,6 +4,9 @@ const getBusinessByEmail = async (email: string) => {
   try {
     const business = await prisma.business.findUnique({
       where: { email },
+      include: {
+        products: true,
+      },
     });
 
     return business;
