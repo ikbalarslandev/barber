@@ -5,6 +5,7 @@ import { format, isBefore } from "date-fns";
 import { tr } from "date-fns/locale";
 import DateAlert from "@/components/Alert";
 import { generateTimeSlots } from "@/lib/utils";
+import { getIstanbulTime } from "@/lib/time";
 
 const DatePage = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -12,12 +13,12 @@ const DatePage = () => {
 
   const allSlots = generateTimeSlots("07:30", "00:00", 30);
 
-  const now = new Date();
+  const now = getIstanbulTime();
 
   // Filter only future time slots
   const timeSlots = allSlots.filter((slot) => {
     const [hour, minute] = slot.split(":").map(Number);
-    const slotTime = new Date();
+    const slotTime = getIstanbulTime();
     slotTime.setHours(hour, minute, 0, 0);
     return !isBefore(slotTime, now);
   });
@@ -30,7 +31,7 @@ const DatePage = () => {
   return (
     <div className="p-4">
       <h1 className="text-xl font-bold mb-4 text-center">
-        {format(new Date(), "d MMMM", { locale: tr })}
+        {format(getIstanbulTime(), "d MMMM", { locale: tr })}
       </h1>
       <div className="grid grid-cols-3 gap-3">
         {timeSlots.map((slot) => (

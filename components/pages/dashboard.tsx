@@ -6,6 +6,7 @@ import { tr } from "date-fns/locale";
 import OwnerAlert from "@/components/OwnerAlert";
 import { generateTimeSlots } from "@/lib/utils";
 import { TBusiness } from "@/prisma/types";
+import { getIstanbulTime } from "@/lib/time";
 
 const DashBoardPage = ({ business }: { business: TBusiness }) => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -14,7 +15,7 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
 
   const [startHour, endHour] = business.workingHours.slice(0, 2);
   const timeSlots = generateTimeSlots(startHour, endHour, 30);
-  const now = new Date();
+  const now = getIstanbulTime();
 
   const bookingsForToday = business.bookings.filter((booking) => {
     const bookingDate = new Date(booking.createdAt);
@@ -28,7 +29,7 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
 
   const isSlotPast = (slot: string) => {
     const [hour, minute] = slot.split(":").map(Number);
-    const slotDate = setMinutes(setHours(new Date(), hour), minute);
+    const slotDate = setMinutes(setHours(getIstanbulTime(), hour), minute);
     return isBefore(slotDate, now);
   };
 
@@ -40,7 +41,7 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
     <div className="p-2">
       <h2 className="text-lg font-semibold text-center">{business.name}</h2>
       <h1 className="font-bold mb-4 text-center">
-        {format(new Date(), "d MMMM", { locale: tr })}
+        {format(getIstanbulTime(), "d MMMM", { locale: tr })}
       </h1>
       <div className="grid grid-cols-3 gap-3">
         {timeSlots.map((slot) => {

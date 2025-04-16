@@ -12,6 +12,7 @@ import { request } from "@/services/axios";
 import { isBefore, setHours, setMinutes } from "date-fns";
 import { IoCallOutline } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa6";
+import { getIstanbulTime } from "@/lib/time";
 
 const OwnerAlert = ({
   isAlertOpen,
@@ -57,8 +58,8 @@ const OwnerAlert = ({
   const isSlotPast = () => {
     const slot = selected || "";
     const [hour, minute] = slot.split(":").map(Number);
-    const slotDate = setMinutes(setHours(new Date(), hour), minute);
-    return isBefore(slotDate, new Date());
+    const slotDate = setMinutes(setHours(getIstanbulTime(), hour), minute);
+    return isBefore(slotDate, getIstanbulTime());
   };
 
   return (
