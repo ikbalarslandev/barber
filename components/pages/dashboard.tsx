@@ -32,6 +32,10 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
     return isBefore(slotDate, now);
   };
 
+  const bookingsForSelected = bookingsForToday.filter(
+    (booking) => booking.hour === selected
+  );
+
   return (
     <div className="p-2">
       <h2 className="text-lg font-semibold text-center">{business.name}</h2>
@@ -74,6 +78,7 @@ const DashBoardPage = ({ business }: { business: TBusiness }) => {
           isAlertOpen={isAlertOpen}
           setIsAlertOpen={setIsAlertOpen}
           setBlockedHours={setBlockedHours}
+          bookingsForSelected={bookingsForSelected}
         />
       </div>
     </div>
