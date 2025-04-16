@@ -7,8 +7,6 @@ export async function POST(req: NextRequest) {
 
     const updatedBusiness = await addBlock(body);
 
-    console.log("[POST /api/block]", updatedBusiness);
-
     return NextResponse.json(updatedBusiness, { status: 201 });
   } catch (error) {
     console.error("[POST /api/property]", error);
