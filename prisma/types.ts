@@ -10,13 +10,14 @@ export interface TProduct {
 
 export interface TBooking {
   id: string;
-  date: string; // ISO string if coming from JSON, use Date if directly used as Date
+  hour: string;
   note?: string;
   c_name: string;
   c_phone: string;
   c_email: string;
-  products: string[]; // array of product IDs
+  products: string[];
   businessId: string;
+  createdAt: Date;
 }
 
 export interface TBusiness {
