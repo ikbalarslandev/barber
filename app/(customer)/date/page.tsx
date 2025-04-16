@@ -1,29 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { format, addMinutes, isBefore } from "date-fns";
+import { format, isBefore } from "date-fns";
 import { tr } from "date-fns/locale";
 import DateAlert from "@/components/Alert";
-
-const generateTimeSlots = (start: string, end: string, interval = 30) => {
-  const today = new Date();
-  const slots: string[] = [];
-
-  const [startHour, startMin] = start.split(":").map(Number);
-  const [endHour, endMin] = end.split(":").map(Number);
-
-  let current = new Date(today.setHours(startHour, startMin, 0, 0));
-  const endTime = new Date(
-    today.setHours(endHour === 0 ? 24 : endHour, endMin, 0, 0)
-  );
-
-  while (isBefore(current, endTime)) {
-    slots.push(format(current, "HH:mm"));
-    current = addMinutes(current, interval);
-  }
-
-  return slots;
-};
+import { generateTimeSlots } from "@/lib/utils";
 
 const DatePage = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
