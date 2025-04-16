@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { format, isBefore, setHours, setMinutes, isSameDay } from "date-fns";
-import { is, tr } from "date-fns/locale";
+import { tr } from "date-fns/locale";
 import OwnerAlert from "@/components/OwnerAlert";
 import { generateTimeSlots } from "@/lib/utils";
 import { TBusiness } from "@/prisma/types";
