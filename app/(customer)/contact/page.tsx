@@ -79,6 +79,8 @@ const ContactPage = () => {
     });
 
     toast.success("Rezervasyon talebiniz alınmıştır.");
+
+    form.reset();
   }
 
   return (
