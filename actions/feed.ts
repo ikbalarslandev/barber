@@ -60,7 +60,7 @@ const generateActionFeed = async ({
   const actionFilename = `action_${timestamp}.json`;
   fs.writeFileSync(
     path.join(feedsDir, actionFilename),
-    JSON.stringify(actionFeed, null, 2)
+    JSON.stringify({ data: actionFeed }, null, 2)
   );
 
   const actionDescriptor = {
@@ -110,7 +110,7 @@ const generateServiceFeed = async ({
   const serviceFilename = `service_${timestamp}.json`;
   fs.writeFileSync(
     path.join(feedsDir, serviceFilename),
-    JSON.stringify(serviceFeed, null, 2)
+    JSON.stringify({ data: serviceFeed }, null, 2)
   );
 
   const serviceDescriptor = {
@@ -134,20 +134,20 @@ const generateFeeds = async () => {
   }
   fs.mkdirSync(feedsDir);
 
-  await generateEntityFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateEntityFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
   // await generateActionFeed({
   //   feedsDir,
   //   timestamp,
   // });
 
-  // await generateServiceFeed({
-  //   feedsDir,
-  //   timestamp,
-  // });
+  await generateServiceFeed({
+    feedsDir,
+    timestamp,
+  });
 
   await prisma.$disconnect();
 };
