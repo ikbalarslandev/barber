@@ -3,13 +3,11 @@ import path from "path";
 import prisma from "../prisma";
 
 const generateEntityFeed = async ({
-  filenameTimestamp,
   feedsDir,
   timestamp,
 }: {
-  filenameTimestamp: string;
   feedsDir: string;
-  timestamp: string;
+  timestamp: number;
 }) => {
   const businesses = await prisma.business.findMany();
 
@@ -22,31 +20,29 @@ const generateEntityFeed = async ({
     },
   }));
 
-  const entityFilename = `entity-${filenameTimestamp}.json`;
+  const entityFilename = `entity_${timestamp}.json`;
   fs.writeFileSync(
     path.join(feedsDir, entityFilename),
-    JSON.stringify(entityFeed, null, 2)
+    JSON.stringify({ data: entityFeed }, null, 2)
   );
 
   const entityDescriptor = {
     name: "reservewithgoogle.entity",
     generation_timestamp: timestamp,
-    files: [entityFilename],
+    data_file: [entityFilename],
   };
   fs.writeFileSync(
-    path.join(feedsDir, `entity-${filenameTimestamp}.filesetdesc.json`),
+    path.join(feedsDir, `entity_${timestamp}.filesetdesc.json`),
     JSON.stringify(entityDescriptor, null, 2)
   );
 };
 
 const generateActionFeed = async ({
-  filenameTimestamp,
   feedsDir,
   timestamp,
 }: {
-  filenameTimestamp: string;
   feedsDir: string;
-  timestamp: string;
+  timestamp: number;
 }) => {
   const businesses = await prisma.business.findMany();
 
@@ -61,7 +57,7 @@ const generateActionFeed = async ({
     ],
   }));
 
-  const actionFilename = `action-${filenameTimestamp}.json`;
+  const actionFilename = `action_${timestamp}.json`;
   fs.writeFileSync(
     path.join(feedsDir, actionFilename),
     JSON.stringify(actionFeed, null, 2)
@@ -70,22 +66,20 @@ const generateActionFeed = async ({
   const actionDescriptor = {
     name: "reservewithgoogle.action.v2",
     generation_timestamp: timestamp,
-    files: [actionFilename],
+    data_file: [actionFilename],
   };
   fs.writeFileSync(
-    path.join(feedsDir, `action-${filenameTimestamp}.filesetdesc.json`),
+    path.join(feedsDir, `action_${timestamp}.filesetdesc.json`),
     JSON.stringify(actionDescriptor, null, 2)
   );
 };
 
 const generateServiceFeed = async ({
-  filenameTimestamp,
   feedsDir,
   timestamp,
 }: {
-  filenameTimestamp: string;
   feedsDir: string;
-  timestamp: string;
+  timestamp: number;
 }) => {
   const products = await prisma.product.findMany({
     include: {
@@ -113,7 +107,7 @@ const generateServiceFeed = async ({
     },
   }));
 
-  const serviceFilename = `glam.service.v0-${filenameTimestamp}.json`;
+  const serviceFilename = `service_${timestamp}.json`;
   fs.writeFileSync(
     path.join(feedsDir, serviceFilename),
     JSON.stringify(serviceFeed, null, 2)
@@ -122,24 +116,17 @@ const generateServiceFeed = async ({
   const serviceDescriptor = {
     name: "glam.service.v0",
     generation_timestamp: timestamp,
-    files: [serviceFilename],
+    data_file: [serviceFilename],
   };
   fs.writeFileSync(
-    path.join(
-      feedsDir,
-      `glam.service.v0-${filenameTimestamp}.filesetdesc.json`
-    ),
+    path.join(feedsDir, `service_${timestamp}.filesetdesc.json`),
     JSON.stringify(serviceDescriptor, null, 2)
   );
 };
 
 const generateFeeds = async () => {
-  const timestamp = new Date().toISOString();
-  const filenameTimestamp = timestamp
-    .replace(/[-:]/g, "")
-    .split(".")[0]
-    .slice(0, 13)
-    .replace("T", "T");
+  const isoTimestamp = new Date().toISOString();
+  const timestamp = Math.floor(new Date(isoTimestamp).getTime() / 1000);
 
   const feedsDir = path.join(process.cwd(), "feeds");
   if (fs.existsSync(feedsDir)) {
@@ -148,22 +135,19 @@ const generateFeeds = async () => {
   fs.mkdirSync(feedsDir);
 
   await generateEntityFeed({
-    filenameTimestamp,
     feedsDir,
     timestamp,
   });
 
-  await generateActionFeed({
-    filenameTimestamp,
-    feedsDir,
-    timestamp,
-  });
+  // await generateActionFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
-  await generateServiceFeed({
-    filenameTimestamp,
-    feedsDir,
-    timestamp,
-  });
+  // await generateServiceFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
   await prisma.$disconnect();
 };
