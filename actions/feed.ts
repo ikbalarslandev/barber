@@ -17,6 +17,7 @@ const generateEntityFeed = async ({
     location: {
       latitude: b.coordinates[0],
       longitude: b.coordinates[1],
+      unstructured_address: "",
     },
   }));
 
@@ -134,15 +135,15 @@ const generateFeeds = async () => {
   }
   fs.mkdirSync(feedsDir);
 
-  // await generateEntityFeed({
-  //   feedsDir,
-  //   timestamp,
-  // });
+  await generateEntityFeed({
+    feedsDir,
+    timestamp,
+  });
 
-  // await generateActionFeed({
-  //   feedsDir,
-  //   timestamp,
-  // });
+  await generateActionFeed({
+    feedsDir,
+    timestamp,
+  });
 
   await generateServiceFeed({
     feedsDir,
