@@ -2,20 +2,15 @@ import fs from "fs";
 import path from "path";
 import prisma from "../prisma";
 
-const generateFeeds = async () => {
-  const timestamp = new Date().toISOString();
-  const filenameTimestamp = timestamp
-    .replace(/[-:]/g, "")
-    .split(".")[0]
-    .slice(0, 13)
-    .replace("T", "T");
-
-  const feedsDir = path.join(process.cwd(), "feeds");
-  if (fs.existsSync(feedsDir)) {
-    fs.rmSync(feedsDir, { recursive: true, force: true });
-  }
-  fs.mkdirSync(feedsDir); // <-- Always run this after deletion
-
+const generateEntityFeed = async ({
+  filenameTimestamp,
+  feedsDir,
+  timestamp,
+}: {
+  filenameTimestamp: string;
+  feedsDir: string;
+  timestamp: string;
+}) => {
   // 1. ENTITY FEED
   const businesses = await prisma.business.findMany();
 
@@ -43,6 +38,27 @@ const generateFeeds = async () => {
     ),
     JSON.stringify(entityDescriptor, null, 2)
   );
+};
+
+const generateFeeds = async () => {
+  const timestamp = new Date().toISOString();
+  const filenameTimestamp = timestamp
+    .replace(/[-:]/g, "")
+    .split(".")[0]
+    .slice(0, 13)
+    .replace("T", "T");
+
+  const feedsDir = path.join(process.cwd(), "feeds");
+  if (fs.existsSync(feedsDir)) {
+    fs.rmSync(feedsDir, { recursive: true, force: true });
+  }
+  fs.mkdirSync(feedsDir); // <-- Always run this after deletion
+
+  await generateEntityFeed({
+    filenameTimestamp,
+    feedsDir,
+    timestamp,
+  });
 
   await prisma.$disconnect();
 };
