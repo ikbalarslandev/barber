@@ -78,9 +78,7 @@ const ContactPage = () => {
       payload: requestBody,
     });
 
-    toast.success(
-      "Rezervasyon talebiniz alınmıştır. Detaylar için e-posta adresinizi kontrol ediniz."
-    );
+    toast.success("Rezervasyon talebiniz alınmıştır.");
   }
 
   return (
