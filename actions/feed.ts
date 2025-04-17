@@ -11,7 +11,6 @@ const generateEntityFeed = async ({
   feedsDir: string;
   timestamp: string;
 }) => {
-  // 1. ENTITY FEED
   const businesses = await prisma.business.findMany();
 
   const entityFeed = businesses.map((b) => ({
@@ -40,6 +39,43 @@ const generateEntityFeed = async ({
   );
 };
 
+const generateActionFeed = async ({
+  filenameTimestamp,
+  feedsDir,
+  timestamp,
+}: {
+  filenameTimestamp: string;
+  feedsDir: string;
+  timestamp: string;
+}) => {
+  const businesses = await prisma.business.findMany();
+
+  const actionFeed = businesses.map((b) => ({
+    merchant_id: `business-${b.id}`,
+    url: `https://www.barber.hamampass.com/rezervasyon/${b.id}`,
+    action_link_type: "BOOK",
+  }));
+
+  const actionFilename = `reservewithgoogle.action.v2-${filenameTimestamp}.json`;
+  fs.writeFileSync(
+    path.join(feedsDir, actionFilename),
+    JSON.stringify(actionFeed, null, 2)
+  );
+
+  const actionDescriptor = {
+    name: "reservewithgoogle.action.v2",
+    generation_timestamp: timestamp,
+    files: [actionFilename],
+  };
+  fs.writeFileSync(
+    path.join(
+      feedsDir,
+      `reservewithgoogle.action.v2-${filenameTimestamp}.filesetdesc.json`
+    ),
+    JSON.stringify(actionDescriptor, null, 2)
+  );
+};
+
 const generateFeeds = async () => {
   const timestamp = new Date().toISOString();
   const filenameTimestamp = timestamp
@@ -52,9 +88,15 @@ const generateFeeds = async () => {
   if (fs.existsSync(feedsDir)) {
     fs.rmSync(feedsDir, { recursive: true, force: true });
   }
-  fs.mkdirSync(feedsDir); // <-- Always run this after deletion
+  fs.mkdirSync(feedsDir);
 
   await generateEntityFeed({
+    filenameTimestamp,
+    feedsDir,
+    timestamp,
+  });
+
+  await generateActionFeed({
     filenameTimestamp,
     feedsDir,
     timestamp,
