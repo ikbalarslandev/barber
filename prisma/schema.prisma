@@ -13,6 +13,8 @@ model Business {
   phone String
   email String @unique
 
+  coordinates Float[]
+
   workingHours String[] @default(["07:30", "00:00"])
   blockedHours String[]
 

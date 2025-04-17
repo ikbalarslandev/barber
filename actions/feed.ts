@@ -14,12 +14,15 @@ const generateEntityFeed = async ({
   const businesses = await prisma.business.findMany();
 
   const entityFeed = businesses.map((b) => ({
-    id: `business-${b.id}`,
+    entity_id: `business-${b.id}`,
     name: b.name,
-    telephone: b.phone,
+    location: {
+      latitude: b.coordinates[0],
+      longitude: b.coordinates[1],
+    },
   }));
 
-  const entityFilename = `reservewithgoogle.entity-${filenameTimestamp}.json`;
+  const entityFilename = `entity-${filenameTimestamp}.json`;
   fs.writeFileSync(
     path.join(feedsDir, entityFilename),
     JSON.stringify(entityFeed, null, 2)
@@ -31,10 +34,7 @@ const generateEntityFeed = async ({
     files: [entityFilename],
   };
   fs.writeFileSync(
-    path.join(
-      feedsDir,
-      `reservewithgoogle.entity-${filenameTimestamp}.filesetdesc.json`
-    ),
+    path.join(feedsDir, `entity-${filenameTimestamp}.filesetdesc.json`),
     JSON.stringify(entityDescriptor, null, 2)
   );
 };
@@ -51,12 +51,17 @@ const generateActionFeed = async ({
   const businesses = await prisma.business.findMany();
 
   const actionFeed = businesses.map((b) => ({
-    merchant_id: `business-${b.id}`,
+    entity_id: `business-${b.id}`,
+    link_id: `link-${b.id}`,
     url: `https://www.barber.hamampass.com/rezervasyon/${b.id}`,
-    action_link_type: "BOOK",
+    actions: [
+      {
+        appointment_info: {},
+      },
+    ],
   }));
 
-  const actionFilename = `reservewithgoogle.action.v2-${filenameTimestamp}.json`;
+  const actionFilename = `action-${filenameTimestamp}.json`;
   fs.writeFileSync(
     path.join(feedsDir, actionFilename),
     JSON.stringify(actionFeed, null, 2)
@@ -68,10 +73,7 @@ const generateActionFeed = async ({
     files: [actionFilename],
   };
   fs.writeFileSync(
-    path.join(
-      feedsDir,
-      `reservewithgoogle.action.v2-${filenameTimestamp}.filesetdesc.json`
-    ),
+    path.join(feedsDir, `action-${filenameTimestamp}.filesetdesc.json`),
     JSON.stringify(actionDescriptor, null, 2)
   );
 };
