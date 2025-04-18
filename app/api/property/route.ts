@@ -11,13 +11,15 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    const { name, phone, email, products } = body;
+    const { name, phone, email, coordinates, address, products } = body;
 
     const newBusiness = await prisma.business.create({
       data: {
         name,
         phone,
         email,
+        coordinates,
+        address,
         products:
           products && products.length > 0
             ? {

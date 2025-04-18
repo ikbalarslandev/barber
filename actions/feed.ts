@@ -17,7 +17,7 @@ const generateEntityFeed = async ({
     location: {
       latitude: b.coordinates[0],
       longitude: b.coordinates[1],
-      unstructured_address: "",
+      unstructured_address: b.address,
     },
   }));
 
@@ -140,15 +140,15 @@ const generateFeeds = async () => {
     timestamp,
   });
 
-  await generateActionFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateActionFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
-  await generateServiceFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateServiceFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
   await prisma.$disconnect();
 };
