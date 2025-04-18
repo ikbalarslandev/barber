@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import prisma from "../prisma";
+import { uploadFeeds } from "../lib/sftp";
 
 const generateEntityFeed = async ({
   feedsDir,
@@ -154,22 +155,24 @@ const generateFeeds = async () => {
   }
   fs.mkdirSync(feedsDir);
 
-  // await generateEntityFeed({
-  //   feedsDir,
-  //   timestamp,
-  // });
+  await generateEntityFeed({
+    feedsDir,
+    timestamp,
+  });
 
   // await generateActionFeed({
   //   feedsDir,
   //   timestamp,
   // });
 
-  await generateServiceFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateServiceFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
   await prisma.$disconnect();
+
+  await uploadFeeds(feedsDir, "/");
 };
 
 generateFeeds().catch((e) => {
