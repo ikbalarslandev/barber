@@ -91,20 +91,39 @@ const generateServiceFeed = async ({
   const serviceFeed = products.map((p) => ({
     merchant_id: `business-${p.businessId}`,
     service_id: `service-${p.id}`,
-    name: p.name,
-    description: `${p.name}`,
-    price: {
-      currency_code: "TRY",
-      units: Math.floor(p.price),
-      nanos: Math.round((p.price % 1) * 1e9),
+    localized_service_name: {
+      value: p.name,
+      localized_value: [
+        {
+          locale: "tr",
+          value: p.name,
+        },
+      ],
     },
-    prepayment_type: "NO_PREPAYMENT",
-    action_link: {
-      url: `https://www.barber.hamampass.com/rezervasyon/${p.businessId}?productId=${p.id}`,
-      action_link_type: "BOOK",
+    localized_service_category: {
+      value: "Genel",
+      localized_value: [
+        {
+          locale: "tr",
+          value: "Genel",
+        },
+      ],
     },
-    duration: {
-      seconds: p.duration * 60,
+    service_price: {
+      price_interpretation: "INTERPRETATION_EXACT",
+      min_price: {
+        price_micros: p.price * 1000000,
+        currency_code: "TRY",
+      },
+    },
+    action_link: [
+      {
+        url: `https://www.barber.hamampass.com/rezervasyon/${p.id}?productId=${p.id}`,
+      },
+    ],
+    service_duration: {
+      duration_interpretation: "INTERPRETATION_NOT_DISPLAYED",
+      min_duration_sec: p.duration,
     },
   }));
 
@@ -135,20 +154,20 @@ const generateFeeds = async () => {
   }
   fs.mkdirSync(feedsDir);
 
-  await generateEntityFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateEntityFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
   // await generateActionFeed({
   //   feedsDir,
   //   timestamp,
   // });
 
-  // await generateServiceFeed({
-  //   feedsDir,
-  //   timestamp,
-  // });
+  await generateServiceFeed({
+    feedsDir,
+    timestamp,
+  });
 
   await prisma.$disconnect();
 };
