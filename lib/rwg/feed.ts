@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import prisma from "../prisma";
-import { uploadFeeds } from "../lib/sftp";
+import prisma from "../../prisma";
+import { uploadFeeds } from "./sftp";
 
 const generateEntityFeed = async ({
   feedsDir,

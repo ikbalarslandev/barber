@@ -10,5 +10,5 @@
     "allowJs": true,
     "strict": true
   },
-  "include": ["actions/**/*.ts"]
+  "include": ["lib/rwg/**/*.ts"]
 }
