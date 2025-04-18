@@ -1,4 +1,3 @@
-// lib/sftp.ts
 import SftpClient from "ssh2-sftp-client";
 import path from "path";
 import fs from "fs";

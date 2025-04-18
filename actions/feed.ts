@@ -160,15 +160,15 @@ const generateFeeds = async () => {
     timestamp,
   });
 
-  // await generateActionFeed({
-  //   feedsDir,
-  //   timestamp,
-  // });
+  await generateActionFeed({
+    feedsDir,
+    timestamp,
+  });
 
-  // await generateServiceFeed({
-  //   feedsDir,
-  //   timestamp,
-  // });
+  await generateServiceFeed({
+    feedsDir,
+    timestamp,
+  });
 
   await prisma.$disconnect();
 
