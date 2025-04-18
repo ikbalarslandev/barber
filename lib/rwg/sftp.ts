@@ -7,7 +7,7 @@ dotenv.config();
 
 const sftp = new SftpClient();
 
-export const uploadFeeds = async (localDir: string, remoteDir: string) => {
+export const uploadFeeds = async (localDir: string) => {
   const config = {
     host: "partnerupload.google.com",
     port: 19321,
@@ -22,7 +22,7 @@ export const uploadFeeds = async (localDir: string, remoteDir: string) => {
     const files = fs.readdirSync(localDir);
     for (const file of files) {
       const localPath = path.join(localDir, file);
-      const remotePath = path.join(remoteDir, file);
+      const remotePath = path.join("/", file);
       console.log(`📤 Uploading ${file}...`);
       await sftp.put(localPath, remotePath);
     }

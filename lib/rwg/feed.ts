@@ -149,7 +149,7 @@ const generateFeeds = async () => {
   const isoTimestamp = new Date().toISOString();
   const timestamp = Math.floor(new Date(isoTimestamp).getTime() / 1000);
 
-  const feedsDir = path.join(process.cwd(), "feeds");
+  const feedsDir = path.join(process.cwd(), "lib/rwg/feeds");
   if (fs.existsSync(feedsDir)) {
     fs.rmSync(feedsDir, { recursive: true, force: true });
   }
@@ -172,7 +172,7 @@ const generateFeeds = async () => {
 
   await prisma.$disconnect();
 
-  await uploadFeeds(feedsDir, "/");
+  await uploadFeeds(feedsDir);
 };
 
 generateFeeds().catch((e) => {
