@@ -13,7 +13,7 @@ export const uploadFeeds = async (localDir: string) => {
     port: 19321,
     username: process.env.SFTP_USER,
     passphrase: process.env.SFTP_PASSWORD,
-    privateKey: fs.readFileSync("/Users/ikbal/Desktop/id_rsa", "utf8"),
+    privateKey: process.env.SSH_PRIVATE_KEY,
   };
 
   try {

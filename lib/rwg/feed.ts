@@ -3,78 +3,78 @@ import path from "path";
 import prisma from "../../prisma";
 import { uploadFeeds } from "./sftp";
 
-const generateEntityFeed = async ({
-  feedsDir,
-  timestamp,
-}: {
-  feedsDir: string;
-  timestamp: number;
-}) => {
-  const businesses = await prisma.business.findMany();
+// const generateEntityFeed = async ({
+//   feedsDir,
+//   timestamp,
+// }: {
+//   feedsDir: string;
+//   timestamp: number;
+// }) => {
+//   const businesses = await prisma.business.findMany();
 
-  const entityFeed = businesses.map((b) => ({
-    entity_id: `business-${b.id}`,
-    name: b.name,
-    location: {
-      latitude: b.coordinates[0],
-      longitude: b.coordinates[1],
-      unstructured_address: b.address,
-    },
-  }));
+//   const entityFeed = businesses.map((b) => ({
+//     entity_id: `business-${b.id}`,
+//     name: b.name,
+//     location: {
+//       latitude: b.coordinates[0],
+//       longitude: b.coordinates[1],
+//       unstructured_address: b.address,
+//     },
+//   }));
 
-  const entityFilename = `entity_${timestamp}.json`;
-  fs.writeFileSync(
-    path.join(feedsDir, entityFilename),
-    JSON.stringify({ data: entityFeed }, null, 2)
-  );
+//   const entityFilename = `entity_${timestamp}.json`;
+//   fs.writeFileSync(
+//     path.join(feedsDir, entityFilename),
+//     JSON.stringify({ data: entityFeed }, null, 2)
+//   );
 
-  const entityDescriptor = {
-    name: "reservewithgoogle.entity",
-    generation_timestamp: timestamp,
-    data_file: [entityFilename],
-  };
-  fs.writeFileSync(
-    path.join(feedsDir, `entity_${timestamp}.filesetdesc.json`),
-    JSON.stringify(entityDescriptor, null, 2)
-  );
-};
+//   const entityDescriptor = {
+//     name: "reservewithgoogle.entity",
+//     generation_timestamp: timestamp,
+//     data_file: [entityFilename],
+//   };
+//   fs.writeFileSync(
+//     path.join(feedsDir, `entity_${timestamp}.filesetdesc.json`),
+//     JSON.stringify(entityDescriptor, null, 2)
+//   );
+// };
 
-const generateActionFeed = async ({
-  feedsDir,
-  timestamp,
-}: {
-  feedsDir: string;
-  timestamp: number;
-}) => {
-  const businesses = await prisma.business.findMany();
+// const generateActionFeed = async ({
+//   feedsDir,
+//   timestamp,
+// }: {
+//   feedsDir: string;
+//   timestamp: number;
+// }) => {
+//   const businesses = await prisma.business.findMany();
 
-  const actionFeed = businesses.map((b) => ({
-    entity_id: `business-${b.id}`,
-    link_id: `link-${b.id}`,
-    url: `https://www.barber.hamampass.com/rezervasyon/${b.id}`,
-    actions: [
-      {
-        appointment_info: {},
-      },
-    ],
-  }));
+//   const actionFeed = businesses.map((b) => ({
+//     entity_id: `business-${b.id}`,
+//     link_id: `link-${b.id}`,
+//     url: `https://www.barber.hamampass.com/rezervasyon/${b.id}`,
+//     actions: [
+//       {
+//         appointment_info: {},
+//       },
+//     ],
+//   }));
 
-  const actionFilename = `action_${timestamp}.json`;
-  fs.writeFileSync(
-    path.join(feedsDir, actionFilename),
-    JSON.stringify({ data: actionFeed }, null, 2)
-  );
+//   const actionFilename = `action_${timestamp}.json`;
+//   fs.writeFileSync(
+//     path.join(feedsDir, actionFilename),
+//     JSON.stringify({ data: actionFeed }, null, 2)
+//   );
 
-  const actionDescriptor = {
-    name: "reservewithgoogle.action.v2",
-    generation_timestamp: timestamp,
-    data_file: [actionFilename],
-  };
-  fs.writeFileSync(
-    path.join(feedsDir, `action_${timestamp}.filesetdesc.json`),
-    JSON.stringify(actionDescriptor, null, 2)
-  );
-};
+//   const actionDescriptor = {
+//     name: "reservewithgoogle.action.v2",
+//     generation_timestamp: timestamp,
+//     data_file: [actionFilename],
+//   };
+//   fs.writeFileSync(
+//     path.join(feedsDir, `action_${timestamp}.filesetdesc.json`),
+//     JSON.stringify(actionDescriptor, null, 2)
+//   );
+// };
 
 const generateServiceFeed = async ({
   feedsDir,
@@ -155,15 +155,15 @@ const generateFeeds = async () => {
   }
   fs.mkdirSync(feedsDir);
 
-  await generateEntityFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateEntityFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
-  await generateActionFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateActionFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
   await generateServiceFeed({
     feedsDir,
