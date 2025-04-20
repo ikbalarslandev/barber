@@ -111,11 +111,11 @@ const generateServiceFeed = async ({
       ],
     },
     localized_service_description: {
-      value: `Enjoy our "${p.name}" service provided by experienced professionals.`,
+      value: `Enjoy our ${p.name} service provided by experienced professionals.`,
       localized_value: [
         {
           locale: "tr",
-          value: `Deneyimli uzmanlar tarafından sunulan "${p.name}" hizmetimizin keyfini çıkarın.`,
+          value: `Deneyimli uzmanlar tarafından sunulan ${p.name} hizmetimizin keyfini çıkarın.`,
         },
       ],
     },
