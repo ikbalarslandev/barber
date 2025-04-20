@@ -110,6 +110,15 @@ const generateServiceFeed = async ({
         },
       ],
     },
+    localized_service_description: {
+      value: `Enjoy our "${p.name}" service provided by experienced professionals.`,
+      localized_value: [
+        {
+          locale: "tr",
+          value: `Deneyimli uzmanlar tarafından sunulan "${p.name}" hizmetimizin keyfini çıkarın.`,
+        },
+      ],
+    },
     service_price: {
       price_interpretation: "INTERPRETATION_EXACT",
       min_price: {
@@ -155,15 +164,15 @@ const generateFeeds = async () => {
   }
   fs.mkdirSync(feedsDir);
 
-  await generateEntityFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateEntityFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
-  await generateActionFeed({
-    feedsDir,
-    timestamp,
-  });
+  // await generateActionFeed({
+  //   feedsDir,
+  //   timestamp,
+  // });
 
   await generateServiceFeed({
     feedsDir,
