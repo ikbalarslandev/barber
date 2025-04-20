@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "actions/feed.js",
     "tsconfig.scripts.json"
-  ],
+, "lib/rwg/feeds-runner.mjs"  ],
   "exclude": ["node_modules"]
 }
