@@ -13,6 +13,18 @@ const Booking = ({ business }: { business: TBusiness }) => {
   useEffect(() => {
     const businessId = business.id;
     localStorage.setItem("businessId", businessId);
+
+    const rwg_token = searchParams.get("rwg_token");
+
+    if (rwg_token) {
+      // Set cookie for 30 days
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 30);
+
+      document.cookie = `rwg_token=${rwg_token}; expires=${expiryDate.toUTCString()}; path=/`;
+
+      console.log("rwg token saved to cookie:", rwg_token);
+    }
   }, [business]);
 
   const [isOpen, setIsOpen] = useState(false);
