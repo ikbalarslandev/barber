@@ -1,4 +1,4 @@
-name: Hourly Feeds Job
+name: Send Feeds
 
 on:
   schedule:
