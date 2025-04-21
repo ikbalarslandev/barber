@@ -1,0 +1,41 @@
+name: Hourly Feeds Job
+
+on:
+  schedule:
+    - cron: "*/2 * * * *" # Every 2 minutes
+workflow_dispatch: # optional: allows manual triggering
+
+jobs:
+  run-feeds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Generate prisma client
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+        run: pnpm prisma generate
+
+      - name: Run feeds command
+        env:
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+        run: pnpm run feeds
