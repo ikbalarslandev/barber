@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "feeds": "ts-node -P tsconfig.scripts.json lib/rwg/feed.ts",
-    "feeds:watch": "node lib/rwg/feeds-runner.mjs"
+    "feeds": "ts-node -P tsconfig.scripts.json lib/rwg/feed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
