@@ -1,4 +1,6 @@
 import prisma from "@/prisma";
+import { rwg_request } from "@/services/axios";
+import { cookies } from "next/headers";
 
 interface TRequestBody {
   c_phone: string;
@@ -10,6 +12,9 @@ interface TRequestBody {
 }
 const createBooking = async (body: TRequestBody) => {
   const { c_phone, c_name, c_email, hour, productIds, businessId } = body;
+
+  const cookieStore = await cookies();
+  const token = cookieStore.get("rwg_token")?.value;
 
   const products = await prisma.product.findMany({
     where: {
@@ -29,6 +34,22 @@ const createBooking = async (body: TRequestBody) => {
       products: products.map((product) => product.name),
     },
   });
+
+  await rwg_request({
+    endpoint: "debug/collect",
+    token,
+  })
+    .then((response) =>
+      console.log(
+        "reserve with google token send",
+        response.status,
+        "token",
+        token
+      )
+    )
+    .catch((error) =>
+      console.log("reserve with google token error", error, "token", token)
+    );
 
   console.log("Booking created", booking);
 

@@ -80,7 +80,7 @@ const ContactPage = () => {
 
     toast.success("Rezervasyon talebiniz alınmıştır.");
 
-    form.reset();
+    // form.reset();
   }
 
   return (

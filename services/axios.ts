@@ -26,4 +26,32 @@ const request = (credentials: {
   return axiosInstance.request(config);
 };
 
-export { request };
+const rwg_request = (credentials: {
+  endpoint: "debug/collect" | "collect";
+  token?: string;
+}) => {
+  const defaultToken =
+    "AJKvS9WeONmWKEwjG0--HdpzMq0yAVNL8KMxbb44QtbcxMhSx_NUud5b8PLUBFehAIxOBO-iYRIJOknEFkIJmdsofdVJ6uOweQ==";
+
+  const rwgInstance = axios.create({
+    baseURL: "https://www.google.com/maps/conversion",
+    withCredentials: false,
+    headers: {
+      "Content-Type": "text/plain",
+    },
+  });
+
+  const config = {
+    method: "post",
+    url: `/${credentials.endpoint}`,
+    data: JSON.stringify({
+      conversion_partner_id: "20003529",
+      rwg_token: credentials.token ?? defaultToken,
+      merchant_changed: "2",
+    }),
+  };
+
+  return rwgInstance.request(config);
+};
+
+export { request, rwg_request };
