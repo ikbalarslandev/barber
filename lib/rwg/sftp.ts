@@ -26,6 +26,8 @@ export const uploadFeeds = async (localDir: string) => {
       console.log(`📤 Uploading ${file}...`);
       await sftp.put(localPath, remotePath);
     }
+    // delete feeds folder after upload
+    fs.rmSync(localDir, { recursive: true, force: true });
 
     console.log("✅ All files uploaded successfully.");
   } catch (err) {

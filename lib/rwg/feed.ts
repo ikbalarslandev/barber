@@ -2,6 +2,10 @@ import fs from "fs";
 import path from "path";
 import prisma from "../../prisma";
 import { uploadFeeds } from "./sftp";
+import zlib from "zlib";
+import { promisify } from "util";
+
+const gzip = promisify(zlib.gzip);
 
 const generateEntityFeed = async ({
   feedsDir,
@@ -23,20 +27,34 @@ const generateEntityFeed = async ({
   }));
 
   const entityFilename = `entity_${timestamp}.json`;
-  fs.writeFileSync(
-    path.join(feedsDir, entityFilename),
-    JSON.stringify({ data: entityFeed }, null, 2)
-  );
+  const entityFilePath = path.join(feedsDir, entityFilename);
+  const jsonContent = JSON.stringify({ data: entityFeed }, null, 2);
 
+  // Write and gzip entity file
+  fs.writeFileSync(entityFilePath, jsonContent);
+  const entityGzippedContent = await gzip(jsonContent);
+  const gzippedEntityFilename = `${entityFilename}.gz`; // e.g. entity_123456.json.gz
+  const gzippedEntityPath = path.join(feedsDir, gzippedEntityFilename);
+  fs.writeFileSync(gzippedEntityPath, entityGzippedContent);
+  fs.unlinkSync(entityFilePath); // remove original .json
+
+  // Create descriptor and gzip it
   const entityDescriptor = {
     name: "reservewithgoogle.entity",
     generation_timestamp: timestamp,
-    data_file: [entityFilename],
+    data_file: [gzippedEntityFilename],
   };
-  fs.writeFileSync(
-    path.join(feedsDir, `entity_${timestamp}.filesetdesc.json`),
-    JSON.stringify(entityDescriptor, null, 2)
-  );
+
+  const descriptorFilename = `entity_${timestamp}.filesetdesc.json`;
+  const descriptorFilePath = path.join(feedsDir, descriptorFilename);
+  const descriptorContent = JSON.stringify(entityDescriptor, null, 2);
+
+  fs.writeFileSync(descriptorFilePath, descriptorContent);
+  const gzippedDescriptorContent = await gzip(descriptorContent);
+  const gzippedDescriptorFilename = `${descriptorFilename}.gz`; // e.g. entity_123456.filesetdesc.json.gz
+  const gzippedDescriptorPath = path.join(feedsDir, gzippedDescriptorFilename);
+  fs.writeFileSync(gzippedDescriptorPath, gzippedDescriptorContent);
+  fs.unlinkSync(descriptorFilePath); // remove original descriptor
 };
 
 const generateActionFeed = async ({
@@ -59,21 +77,35 @@ const generateActionFeed = async ({
     ],
   }));
 
+  // Write action feed
   const actionFilename = `action_${timestamp}.json`;
-  fs.writeFileSync(
-    path.join(feedsDir, actionFilename),
-    JSON.stringify({ data: actionFeed }, null, 2)
-  );
+  const actionFilePath = path.join(feedsDir, actionFilename);
+  const jsonContent = JSON.stringify({ data: actionFeed }, null, 2);
+  fs.writeFileSync(actionFilePath, jsonContent);
 
+  // Gzip feed
+  const gzippedActionContent = await gzip(jsonContent);
+  const gzippedActionFilename = `${actionFilename}.gz`; // action_123.json.gz
+  const gzippedActionPath = path.join(feedsDir, gzippedActionFilename);
+  fs.writeFileSync(gzippedActionPath, gzippedActionContent);
+  fs.unlinkSync(actionFilePath); // delete original .json
+
+  // Create and gzip descriptor
   const actionDescriptor = {
     name: "reservewithgoogle.action.v2",
     generation_timestamp: timestamp,
-    data_file: [actionFilename],
+    data_file: [gzippedActionFilename],
   };
-  fs.writeFileSync(
-    path.join(feedsDir, `action_${timestamp}.filesetdesc.json`),
-    JSON.stringify(actionDescriptor, null, 2)
-  );
+  const descriptorFilename = `action_${timestamp}.filesetdesc.json`;
+  const descriptorFilePath = path.join(feedsDir, descriptorFilename);
+  const descriptorContent = JSON.stringify(actionDescriptor, null, 2);
+  fs.writeFileSync(descriptorFilePath, descriptorContent);
+
+  const gzippedDescriptorContent = await gzip(descriptorContent);
+  const gzippedDescriptorFilename = `${descriptorFilename}.gz`;
+  const gzippedDescriptorPath = path.join(feedsDir, gzippedDescriptorFilename);
+  fs.writeFileSync(gzippedDescriptorPath, gzippedDescriptorContent);
+  fs.unlinkSync(descriptorFilePath); // delete original descriptor
 };
 
 const generateServiceFeed = async ({
@@ -122,7 +154,7 @@ const generateServiceFeed = async ({
     service_price: {
       price_interpretation: "INTERPRETATION_EXACT",
       min_price: {
-        price_micros: p.price * 1000000,
+        price_micros: p.price * 1_000_000,
         currency_code: "TRY",
       },
     },
@@ -137,21 +169,36 @@ const generateServiceFeed = async ({
     },
   }));
 
+  // Write service JSON file
   const serviceFilename = `service_${timestamp}.json`;
-  fs.writeFileSync(
-    path.join(feedsDir, serviceFilename),
-    JSON.stringify({ data: serviceFeed }, null, 2)
-  );
+  const serviceFilePath = path.join(feedsDir, serviceFilename);
+  const jsonContent = JSON.stringify({ data: serviceFeed }, null, 2);
+  fs.writeFileSync(serviceFilePath, jsonContent);
 
+  // Gzip it
+  const gzippedServiceContent = await gzip(jsonContent);
+  const gzippedServiceFilename = `${serviceFilename}.gz`;
+  const gzippedServicePath = path.join(feedsDir, gzippedServiceFilename);
+  fs.writeFileSync(gzippedServicePath, gzippedServiceContent);
+  fs.unlinkSync(serviceFilePath);
+
+  // Write descriptor
   const serviceDescriptor = {
     name: "glam.service.v0",
     generation_timestamp: timestamp,
-    data_file: [serviceFilename],
+    data_file: [gzippedServiceFilename],
   };
-  fs.writeFileSync(
-    path.join(feedsDir, `service_${timestamp}.filesetdesc.json`),
-    JSON.stringify(serviceDescriptor, null, 2)
-  );
+  const descriptorFilename = `service_${timestamp}.filesetdesc.json`;
+  const descriptorFilePath = path.join(feedsDir, descriptorFilename);
+  const descriptorContent = JSON.stringify(serviceDescriptor, null, 2);
+  fs.writeFileSync(descriptorFilePath, descriptorContent);
+
+  // Gzip descriptor
+  const gzippedDescriptorContent = await gzip(descriptorContent);
+  const gzippedDescriptorFilename = `${descriptorFilename}.gz`;
+  const gzippedDescriptorPath = path.join(feedsDir, gzippedDescriptorFilename);
+  fs.writeFileSync(gzippedDescriptorPath, gzippedDescriptorContent);
+  fs.unlinkSync(descriptorFilePath);
 };
 
 const generateFeeds = async () => {
@@ -159,9 +206,6 @@ const generateFeeds = async () => {
   const timestamp = Math.floor(new Date(isoTimestamp).getTime() / 1000);
 
   const feedsDir = path.join(process.cwd(), "lib/rwg/feeds");
-  if (fs.existsSync(feedsDir)) {
-    fs.rmSync(feedsDir, { recursive: true, force: true });
-  }
   fs.mkdirSync(feedsDir);
 
   await generateEntityFeed({
