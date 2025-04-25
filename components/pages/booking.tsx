@@ -20,7 +20,7 @@ const Booking = ({ business }: { business: TBusiness }) => {
       expiryDate.setDate(expiryDate.getDate() + 30);
       document.cookie = `rwg_token=${rwg_token}; expires=${expiryDate.toUTCString()}; path=/`;
     }
-  }, [business]);
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
