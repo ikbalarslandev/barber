@@ -13,7 +13,7 @@ const generateEntityFeed = async ({
   const businesses = await prisma.business.findMany();
 
   const entityFeed = businesses.map((b) => ({
-    entity_id: `business-${b.id}`,
+    entity_id: b.id,
     name: b.name,
     location: {
       latitude: b.coordinates[0],
@@ -49,9 +49,9 @@ const generateActionFeed = async ({
   const businesses = await prisma.business.findMany();
 
   const actionFeed = businesses.map((b) => ({
-    entity_id: `business-${b.id}`,
+    entity_id: b.id,
     link_id: `link-${b.id}`,
-    url: `https://www.barber.hamampass.com/rezervasyon/${b.id}`,
+    url: `https://www.single.hamampass.com/rezervasyon/${b.id}`,
     actions: [
       {
         appointment_info: {},
@@ -90,7 +90,7 @@ const generateServiceFeed = async ({
   });
 
   const serviceFeed = products.map((p) => ({
-    merchant_id: `business-${p.businessId}`,
+    merchant_id: p.businessId,
     service_id: `service-${p.id}`,
     localized_service_name: {
       value: p.name,
@@ -128,7 +128,7 @@ const generateServiceFeed = async ({
     },
     action_link: [
       {
-        url: `https://www.barber.hamampass.com/rezervasyon/${p.id}?productId=${p.id}`,
+        url: `https://www.single.hamampass.com/rezervasyon/${p.id}?productId=${p.id}`,
       },
     ],
     service_duration: {
