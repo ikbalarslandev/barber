@@ -17,7 +17,7 @@ const generateEntityFeed = async ({
   const businesses = await prisma.business.findMany();
 
   const entityFeed = businesses.map((b) => ({
-    entity_id: b.id,
+    entity_id: `business-${b.id}`,
     name: b.name,
     location: {
       latitude: b.coordinates[0],
@@ -36,7 +36,9 @@ const generateEntityFeed = async ({
   const gzippedEntityFilename = `${entityFilename}.gz`; // e.g. entity_123456.json.gz
   const gzippedEntityPath = path.join(feedsDir, gzippedEntityFilename);
   fs.writeFileSync(gzippedEntityPath, entityGzippedContent);
-  fs.unlinkSync(entityFilePath); // remove original .json
+
+  // remove original .json
+  //fs.unlinkSync(entityFilePath);
 
   // Create descriptor and gzip it
   const entityDescriptor = {
@@ -54,7 +56,8 @@ const generateEntityFeed = async ({
   const gzippedDescriptorFilename = `${descriptorFilename}.gz`; // e.g. entity_123456.filesetdesc.json.gz
   const gzippedDescriptorPath = path.join(feedsDir, gzippedDescriptorFilename);
   fs.writeFileSync(gzippedDescriptorPath, gzippedDescriptorContent);
-  fs.unlinkSync(descriptorFilePath); // remove original descriptor
+  // remove original descriptor
+  //  fs.unlinkSync(descriptorFilePath);
 };
 
 const generateActionFeed = async ({
@@ -67,7 +70,7 @@ const generateActionFeed = async ({
   const businesses = await prisma.business.findMany();
 
   const actionFeed = businesses.map((b) => ({
-    entity_id: b.id,
+    entity_id: `business-${b.id}`,
     link_id: `link-${b.id}`,
     url: `https://www.single.hamampass.com/rezervasyon/${b.id}`,
     actions: [
@@ -88,7 +91,8 @@ const generateActionFeed = async ({
   const gzippedActionFilename = `${actionFilename}.gz`; // action_123.json.gz
   const gzippedActionPath = path.join(feedsDir, gzippedActionFilename);
   fs.writeFileSync(gzippedActionPath, gzippedActionContent);
-  fs.unlinkSync(actionFilePath); // delete original .json
+  // Remove original .json
+  // fs.unlinkSync(actionFilePath);
 
   // Create and gzip descriptor
   const actionDescriptor = {
@@ -105,7 +109,8 @@ const generateActionFeed = async ({
   const gzippedDescriptorFilename = `${descriptorFilename}.gz`;
   const gzippedDescriptorPath = path.join(feedsDir, gzippedDescriptorFilename);
   fs.writeFileSync(gzippedDescriptorPath, gzippedDescriptorContent);
-  fs.unlinkSync(descriptorFilePath); // delete original descriptor
+  // delete original descriptor
+  // fs.unlinkSync(descriptorFilePath);
 };
 
 const generateServiceFeed = async ({
@@ -122,7 +127,7 @@ const generateServiceFeed = async ({
   });
 
   const serviceFeed = products.map((p) => ({
-    merchant_id: p.businessId,
+    merchant_id: `business-${p.businessId}`,
     service_id: `service-${p.id}`,
     localized_service_name: {
       value: p.name,
@@ -180,7 +185,8 @@ const generateServiceFeed = async ({
   const gzippedServiceFilename = `${serviceFilename}.gz`;
   const gzippedServicePath = path.join(feedsDir, gzippedServiceFilename);
   fs.writeFileSync(gzippedServicePath, gzippedServiceContent);
-  fs.unlinkSync(serviceFilePath);
+  // Remove original .json
+  // fs.unlinkSync(serviceFilePath);
 
   // Write descriptor
   const serviceDescriptor = {
@@ -198,7 +204,8 @@ const generateServiceFeed = async ({
   const gzippedDescriptorFilename = `${descriptorFilename}.gz`;
   const gzippedDescriptorPath = path.join(feedsDir, gzippedDescriptorFilename);
   fs.writeFileSync(gzippedDescriptorPath, gzippedDescriptorContent);
-  fs.unlinkSync(descriptorFilePath);
+  // Remove original descriptor
+  // fs.unlinkSync(descriptorFilePath);
 };
 
 const generateFeeds = async () => {

@@ -20,13 +20,19 @@ export const uploadFeeds = async (localDir: string) => {
     await sftp.connect(config);
 
     const files = fs.readdirSync(localDir);
-    for (const file of files) {
+
+    const filteredFilesForZip = files.filter((file) => {
+      const ext = path.extname(file);
+      return ext === ".gz";
+    });
+
+    for (const file of filteredFilesForZip) {
       const localPath = path.join(localDir, file);
       const remotePath = path.join("/", file);
-      console.log(`📤 Uploading ${file}...`);
+      console.log(`📤 Uploading ${file}`);
       await sftp.put(localPath, remotePath);
     }
-    // delete feeds folder after upload
+
     fs.rmSync(localDir, { recursive: true, force: true });
 
     console.log("✅ All files uploaded successfully.");
