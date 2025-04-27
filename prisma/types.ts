@@ -23,8 +23,10 @@ export interface TBooking {
 export interface TBusiness {
   id: string;
   name: string;
-  phone: string;
   email: string;
+
+  address: string;
+
   workingHours: string[];
   blockedHours: string[];
   products: TProduct[];

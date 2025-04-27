@@ -5,6 +5,7 @@ import { CiCirclePlus } from "react-icons/ci";
 import DrawerComponent from "../Drawer";
 import { useState, useEffect } from "react";
 import { TBusiness, TProduct } from "@/prisma/types";
+import { CiLocationOn } from "react-icons/ci";
 
 const Booking = ({ business }: { business: TBusiness }) => {
   const router = useRouter();
@@ -40,7 +41,14 @@ const Booking = ({ business }: { business: TBusiness }) => {
 
   return (
     <main>
-      <h1 className="text-center text-xl font-bold mt-4">{business?.name}</h1>
+      <h1 className="text-center text-xl font-bold mt-4 mx-4">
+        {business?.name}
+      </h1>
+      <div className="flex items-center justify-center mt-2 mb-10 gap-1 mx-4">
+        <CiLocationOn size={20} />
+        <h5 className="text-xs">{business?.address}</h5>
+      </div>
+
       <div className="flex flex-col gap-4 mx-3 mt-5">
         {business?.products.map((product: TProduct) => (
           <button
