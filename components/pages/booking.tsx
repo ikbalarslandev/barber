@@ -25,7 +25,9 @@ const Booking = ({ business }: { business: TBusiness }) => {
 
     // if productId is not in the URL console log it
     const productId = searchParams.get("productId");
-    productId && setIsOpen(true);
+    if (productId) {
+      setIsOpen(true);
+    }
   }, []);
 
   const handleProductClick = (product: TProduct) => {
