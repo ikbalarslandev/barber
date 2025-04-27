@@ -9,9 +9,8 @@ datasource db {
 
 model Business {
   id    String @id @default(cuid())
-  name  String
-  phone String
-  email String @unique
+  name  String @unique
+  email String @unique @default(cuid())
 
   coordinates Float[]
   address     String  @default("")
@@ -24,10 +23,13 @@ model Business {
 }
 
 model Product {
-  id         String   @id @default(cuid())
-  name       String
-  duration   Int      @default(30)
-  price      Float
+  id   String  @id @default(cuid())
+  name String
+  desc String   @default("İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.")
+
+  duration Int   @default(30)
+  price    Float
+
   businessId String
   business   Business @relation(fields: [businessId], references: [id])
 }
