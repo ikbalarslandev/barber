@@ -165,7 +165,7 @@ const generateServiceFeed = async ({
     },
     action_link: [
       {
-        url: `https://www.single.hamampass.com/rezervasyon/${p.id}?productId=${p.id}`,
+        url: `https://www.single.hamampass.com/rezervasyon/${p.businessId}?productId=${p.id}`,
       },
     ],
     service_duration: {

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Barber",
-  description: "barber shop booking page",
+  title: "Hamampass",
+  description: "Book your favorite hamam",
 };
 
 export default function RootLayout({
