@@ -10,6 +10,7 @@ import { CiLocationOn } from "react-icons/ci";
 const Booking = ({ business }: { business: TBusiness }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const businessId = business.id;
@@ -21,9 +22,11 @@ const Booking = ({ business }: { business: TBusiness }) => {
       expiryDate.setDate(expiryDate.getDate() + 30);
       document.cookie = `rwg_token=${rwg_token}; expires=${expiryDate.toUTCString()}; path=/`;
     }
-  }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
+    // if productId is not in the URL console log it
+    const productId = searchParams.get("productId");
+    productId && setIsOpen(true);
+  }, []);
 
   const handleProductClick = (product: TProduct) => {
     const current = new URLSearchParams(searchParams.toString());
