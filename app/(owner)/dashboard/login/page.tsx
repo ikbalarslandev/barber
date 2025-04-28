@@ -23,9 +23,9 @@ const BusinessLogin = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 px-4">
-      <h1 className="text-4xl font-bold">Business Login</h1>
+      <h1 className="text-4xl font-bold">İşletme Girişi</h1>
       <p className="mt-2 text-gray-600">
-        Please enter your credentials to access the business dashboard.
+        İşletme paneline erişmek için giriş bilgilerinizi giriniz.
       </p>
 
       <form onSubmit={handleSubmit} className="mt-6 w-full max-w-sm space-y-4">
@@ -33,7 +33,7 @@ const BusinessLogin = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
+          placeholder="E-posta adresinizi girin"
           required
           className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
         />
@@ -41,7 +41,7 @@ const BusinessLogin = () => {
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
         >
-          Login
+          Giriş Yap
         </button>
       </form>
     </div>
