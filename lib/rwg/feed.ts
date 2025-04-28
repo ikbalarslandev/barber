@@ -22,7 +22,12 @@ const generateEntityFeed = async ({
     location: {
       latitude: b.coordinates[0],
       longitude: b.coordinates[1],
-      unstructured_address: b.address,
+      address: {
+        country: "TR",
+        locality: "İstanbul",
+        postal_code: b.postalCode,
+        street_address: b.address,
+      },
     },
   }));
 

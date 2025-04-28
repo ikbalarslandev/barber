@@ -26,6 +26,7 @@ export interface TBusiness {
   email: string;
 
   address: string;
+  postalCode: string;
 
   workingHours: string[];
   blockedHours: string[];
