@@ -164,7 +164,7 @@ const generateServiceFeed = async ({
     service_price: {
       price_interpretation: "INTERPRETATION_EXACT",
       min_price: {
-        price_micros: p.price * 1_000_000,
+        price_micros: p.price * 1000000,
         currency_code: "TRY",
       },
     },
@@ -174,8 +174,11 @@ const generateServiceFeed = async ({
       },
     ],
     service_duration: {
-      duration_interpretation: "INTERPRETATION_NOT_DISPLAYED",
-      min_duration_sec: p.duration,
+      duration_interpretation: "INTERPRETATION_EXACT",
+      min_duration_sec: p.duration * 60,
+    },
+    ranking_hint: {
+      score: 1,
     },
   }));
 
