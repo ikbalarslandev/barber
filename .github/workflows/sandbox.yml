@@ -1,4 +1,4 @@
-name: Send Feeds
+name: Sandbox Feeds
 
 on:
   schedule:
