@@ -63,7 +63,9 @@ const Booking = ({ business }: { business: TBusiness }) => {
           >
             <div className="flex gap-2 items-center">
               <h2>{product.name}</h2>
-              <p className="text-sm">({product.price} TL)</p>
+              <p className="text-sm">
+                ({product.price} {product.currency})
+              </p>
             </div>
             <CiCirclePlus />
           </button>

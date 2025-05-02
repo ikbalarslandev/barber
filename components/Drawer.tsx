@@ -62,7 +62,9 @@ const DrawerComponent = ({
             >
               <div className="flex gap-2 items-center ">
                 <h2>{product.name}</h2>
-                <p className="text-sm">({product.price} TL)</p>
+                <p className="text-sm">
+                  ({product.price} {product.currency})
+                </p>
               </div>
 
               <FaTrashAlt
@@ -78,7 +80,7 @@ const DrawerComponent = ({
           <h2 className="font-bold">Toplam</h2>
           <p className="font-bold">
             {existingProducts.reduce((acc, product) => acc + product.price, 0)}{" "}
-            TL
+            {products[0].currency}
           </p>
         </div>
 

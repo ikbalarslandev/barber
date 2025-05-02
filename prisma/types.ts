@@ -4,6 +4,7 @@ export interface TProduct {
   id: string;
   name: string;
   duration: number;
+  currency: string;
   price: number;
   businessId: string;
 }
