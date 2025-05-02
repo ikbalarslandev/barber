@@ -7,6 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum ECurrency {
+  TRY
+  USD
+  EUR
+}
+
 model Business {
   id    String @id @default(cuid())
   name  String @unique
@@ -24,12 +30,14 @@ model Business {
 }
 
 model Product {
-  id   String  @id @default(cuid())
+  id   String @id @default(cuid())
   name String
-  desc String   @default("İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.")
+  desc String @default("İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.")
 
   duration Int   @default(30)
   price    Float
+
+  currency ECurrency @default(TRY)
 
   businessId String
   business   Business @relation(fields: [businessId], references: [id])

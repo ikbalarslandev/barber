@@ -165,7 +165,7 @@ const generateServiceFeed = async ({
       price_interpretation: "INTERPRETATION_EXACT",
       min_price: {
         price_micros: p.price * 1000000,
-        currency_code: "TRY",
+        currency_code: `${p.currency}`,
       },
     },
     action_link: [
