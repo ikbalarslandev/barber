@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import prisma from "../../prisma";
-import { uploadFeeds } from "./sftp";
+// import { uploadFeeds } from "./sftp";
 import zlib from "zlib";
 import { promisify } from "util";
 
@@ -27,8 +27,8 @@ const generateEntityFeed = async ({
       latitude: b.location?.coordinates[0],
       longitude: b.location?.coordinates[1],
       address: {
-        country: "TR",
-        locality: "İstanbul",
+        country: b.location?.countryCode,
+        locality: b.location?.city,
         postal_code: b.location?.postalCode,
         street_address: b.location?.address,
       },
@@ -244,7 +244,7 @@ const generateFeeds = async () => {
 
   await prisma.$disconnect();
 
-  await uploadFeeds(feedsDir);
+  // await uploadFeeds(feedsDir);
 };
 
 generateFeeds().catch((e) => {
