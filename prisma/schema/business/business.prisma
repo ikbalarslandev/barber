@@ -4,6 +4,9 @@ model Business {
   name  String @unique
   email String @unique @default(cuid())
 
+  type EType @default(PUBLIC)
+  isHistorical Boolean @default(false)
+
   workingHours String[] @default(["07:30", "00:00"])
   blockedHours String[]
 
@@ -23,4 +26,11 @@ model Location {
   postalCode  String  @default("")
 
   business Business?
+}
+
+
+
+enum EType {
+PUBLIC
+PRIVATE
 }
