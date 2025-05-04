@@ -1,0 +1,15 @@
+model Business {
+  id    String @id @default(cuid())
+  name  String @unique
+  email String @unique @default(cuid())
+
+  coordinates Float[]
+  address     String  @default("")
+  postalCode  String  @default("")
+
+  workingHours String[] @default(["07:30", "00:00"])
+  blockedHours String[]
+
+  products Product[]
+  bookings Booking[]
+}
