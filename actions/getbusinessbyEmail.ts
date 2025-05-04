@@ -1,4 +1,5 @@
 import prisma from "@/prisma";
+import { TBusiness } from "@/prisma/types";
 
 const getBusinessByEmail = async (email: string) => {
   try {
@@ -7,10 +8,11 @@ const getBusinessByEmail = async (email: string) => {
       include: {
         products: true,
         bookings: true,
+        location: true,
       },
     });
 
-    return business;
+    return business as TBusiness;
   } catch (error) {
     console.error("[getBusinessByEmail]", error);
     throw new Error("Failed to fetch business");

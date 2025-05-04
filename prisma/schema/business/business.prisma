@@ -1,15 +1,24 @@
 model Business {
   id    String @id @default(cuid())
+
   name  String @unique
   email String @unique @default(cuid())
+
+  workingHours String[] @default(["07:30", "00:00"])
+  blockedHours String[]
+
+  location   Location?  @relation(fields: [locationId], references: [id])
+  locationId String?   @unique
+  products  Product[]
+  bookings  Booking[]
+}
+
+model Location {
+  id String @id @default(cuid())
 
   coordinates Float[]
   address     String  @default("")
   postalCode  String  @default("")
 
-  workingHours String[] @default(["07:30", "00:00"])
-  blockedHours String[]
-
-  products Product[]
-  bookings Booking[]
+  business Business?
 }

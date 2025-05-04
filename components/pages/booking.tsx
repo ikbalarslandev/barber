@@ -51,7 +51,7 @@ const Booking = ({ business }: { business: TBusiness }) => {
       </h1>
       <div className="flex items-center justify-center mt-2 mb-10 gap-1 mx-4">
         <CiLocationOn size={20} />
-        <h5 className="text-xs">{business?.address}</h5>
+        <h5 className="text-xs">{business?.location.address}</h5>
       </div>
 
       <div className="flex flex-col gap-4 mx-3 mt-5">

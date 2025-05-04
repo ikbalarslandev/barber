@@ -14,19 +14,23 @@ const generateEntityFeed = async ({
   feedsDir: string;
   timestamp: number;
 }) => {
-  const businesses = await prisma.business.findMany();
+  const businesses = await prisma.business.findMany({
+    include: {
+      location: true,
+    },
+  });
 
   const entityFeed = businesses.map((b) => ({
     entity_id: `business-${b.id}`,
     name: b.name,
     location: {
-      latitude: b.coordinates[0],
-      longitude: b.coordinates[1],
+      latitude: b.location?.coordinates[0],
+      longitude: b.location?.coordinates[1],
       address: {
         country: "TR",
         locality: "İstanbul",
-        postal_code: b.postalCode,
-        street_address: b.address,
+        postal_code: b.location?.postalCode,
+        street_address: b.location?.address,
       },
     },
   }));
