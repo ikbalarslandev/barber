@@ -1,15 +1,18 @@
-import { Business, Location, Product, Booking } from "@prisma/client";
+import { Business, Location, Product, Booking, Customer } from "@prisma/client";
 
 export interface TLocation extends Location {}
+export interface TCustomer extends Customer {}
 
 export interface TBusiness extends Business {
-  location: TLocation;
   products: TProduct[];
+  location: TLocation;
   bookings: TBooking[];
 }
 
 export interface TProduct extends Product {}
-export interface TBooking extends Booking {}
+export interface TBooking extends Booking {
+  customer: TCustomer;
+}
 
 // export interface TProduct {
 //   id: string;

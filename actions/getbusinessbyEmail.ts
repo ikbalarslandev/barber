@@ -7,7 +7,11 @@ const getBusinessByEmail = async (email: string) => {
       where: { email },
       include: {
         products: true,
-        bookings: true,
+        bookings: {
+          include: {
+            customer: true,
+          },
+        },
         location: true,
       },
     });

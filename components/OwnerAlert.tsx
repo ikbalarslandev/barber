@@ -76,17 +76,17 @@ const OwnerAlert = ({
               className="flex flex-col justify-between items-start border rounded p-1 shadow"
             >
               <div className="flex items-center justify-between w-full">
-                <h3 className="font-bold">{booking.c_name}</h3>
+                <h3 className="font-bold">{booking.customer.name}</h3>
                 <div className="flex gap-6">
                   <IoCallOutline
                     size={20}
-                    onClick={() => window.open(`tel:${booking.c_phone}`)}
+                    onClick={() => window.open(`tel:${booking.customer.phone}`)}
                   />
                   <FaWhatsapp
                     size={20}
                     onClick={() =>
                       window.open(
-                        `https://api.whatsapp.com/send?phone=${booking.c_phone}`
+                        `https://api.whatsapp.com/send?phone=${booking.customer.phone}`
                       )
                     }
                   />

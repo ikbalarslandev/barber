@@ -1,16 +1,24 @@
 model Booking {
   id   String @id @default(cuid())
-  hour String //HH:mm
+  hour String // HH:mm
 
-  //customer
-  c_name  String
-  c_phone String
-  c_email String
-
-  //product
   products   String[]
   businessId String
   business   Business @relation(fields: [businessId], references: [id])
 
+  totalPrice Float @default(0)
+  currency   ECurrency @default(TRY)
+
+  customer   Customer @relation(fields: [customerId], references: [id])
+  customerId String   @unique
+
   createdAt DateTime @default(now())
+}
+
+model Customer {
+  id    String @id @default(cuid())
+  name  String
+  phone String
+
+  booking Booking?
 }

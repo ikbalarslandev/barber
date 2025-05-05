@@ -11,7 +11,7 @@ interface TRequestBody {
   businessId: string;
 }
 const createBooking = async (body: TRequestBody) => {
-  const { c_phone, c_name, c_email, hour, productIds, businessId } = body;
+  const { c_phone, c_name, hour, productIds, businessId } = body;
 
   const cookieStore = await cookies();
   const token = cookieStore.get("rwg_token")?.value;
@@ -24,11 +24,16 @@ const createBooking = async (body: TRequestBody) => {
     },
   });
 
+  const customer = await prisma.customer.create({
+    data: {
+      name: c_name,
+      phone: c_phone,
+    },
+  });
+
   const booking = await prisma.booking.create({
     data: {
-      c_phone,
-      c_name,
-      c_email,
+      customerId: customer.id,
       hour,
       businessId,
       products: products.map((product) => product.name),
