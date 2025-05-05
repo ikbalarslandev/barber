@@ -25,6 +25,9 @@ model Business {
   workingHours String[] @default(["07:30", "00:00"])
   blockedHours String[]
 
+  status   EStatus  @default(PENDING)
+
+
   products Product[]
   bookings Booking[]
 }
@@ -39,9 +42,17 @@ model Product {
 
   currency ECurrency @default(TRY)
 
+
   businessId String
   business   Business @relation(fields: [businessId], references: [id])
 }
+
+
+enum EStatus {
+  PENDING
+  APPROVED
+}
+
 
 model Booking {
   id   String @id @default(cuid())
