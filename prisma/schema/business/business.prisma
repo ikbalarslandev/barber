@@ -7,7 +7,7 @@ model Business {
   type         EType   @default(PUBLIC)
   isHistorical Boolean @default(false)
 
-  //gender text
+  //gender text for different Day different gender
   desc_tr String @default("")
   desc_en String @default("")
 
