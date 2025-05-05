@@ -5,15 +5,41 @@ enum ECurrency {
 }
 
 model Product {
-  id   String @id @default(cuid())
-  name String
-  desc String @default("İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.")
+  id          String       @id @default(cuid())
+  i18nDetails I18nDetail[]
 
   duration Int   @default(30)
-  price    Float
-
-  currency ECurrency @default(TRY)
+  price    Price @relation(fields: [priceId], references: [id])
 
   businessId String
   business   Business @relation(fields: [businessId], references: [id])
+  priceId    String  
+}
+
+enum ELocale {
+  tr
+  en
+}
+
+model I18nDetail {
+  id String @id @default(cuid())
+
+  locale ELocale
+
+  name     String
+  category String
+  desc     String
+
+  Product   Product? @relation(fields: [productId], references: [id])
+  productId String?
+
+  @@unique([productId, locale])
+}
+
+model Price {
+  id String @id @default(cuid())
+
+  value    Float
+  currency ECurrency @default(TRY)
+  Product  Product[]
 }

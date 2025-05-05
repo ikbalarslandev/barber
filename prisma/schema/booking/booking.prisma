@@ -6,7 +6,7 @@ model Booking {
   businessId String
   business   Business @relation(fields: [businessId], references: [id])
 
-  totalPrice Float @default(0)
+  totalPrice Float     @default(0)
   currency   ECurrency @default(TRY)
 
   customer   Customer @relation(fields: [customerId], references: [id])
