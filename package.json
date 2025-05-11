@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "feeds": "ts-node -P tsconfig.scripts.json lib/rwg/feed.ts"
+    "feeds": "ts-node -P tsconfig.scripts.json lib/rwg/feed.ts",
+    "seed": "ts-node -P tsconfig.scripts.json lib/rwg/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
