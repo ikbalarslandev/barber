@@ -174,8 +174,8 @@ const generateServiceFeed = async ({
       },
     ],
     service_duration: {
-      duration_interpretation: "INTERPRETATION_EXACT",
-      min_duration_sec: p.duration * 60,
+      duration_interpretation: "INTERPRETATION_NOT_DISPLAYED",
+      min_duration_sec: 0,
     },
     ranking_hint: {
       score: 1,
