@@ -1,0 +1,872 @@
+{
+  "data": [
+    {
+      "id": "cm9mq4lot000lrxr1yudcihlj",
+      "name": "Tarihi Ağa Hamamı Üsküdar",
+      "email": "aga@hamam.com",
+      "coordinates": [
+        41.01943353551739,
+        29.01711342723896
+      ],
+      "address": "Ahmediye, Gündoğumu Cd. No:61, 34672 Üsküdar/İstanbul",
+      "postalCode": "34672",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mq4lot000mrxr1xqjb6bah",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 400,
+          "currency": "TRY",
+          "businessId": "cm9mq4lot000lrxr1yudcihlj"
+        }
+      ]
+    },
+    {
+      "id": "cm9mqj6hy0016rxr1798mmwt9",
+      "name": "Fatih Hamamı",
+      "email": "fatih@hamam.com",
+      "coordinates": [
+        41.01837804630576,
+        28.94821715055942
+      ],
+      "address": "Akşemsettin Mahallesi Akdeniz Caddesi &, Yaran Sk. 32/A, 34080 Fatih",
+      "postalCode": "34080",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mqj6hy0017rxr1uvda5v11",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 500,
+          "currency": "TRY",
+          "businessId": "cm9mqj6hy0016rxr1798mmwt9"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyna20000crx3ej7babj7o",
+      "name": "Sultan Süleyman Hamam Traditional Turkish Bath - Antusa Palace",
+      "email": "cm9xyna20000drx3ebcvfyijx",
+      "coordinates": [
+        41.00899082907167,
+        28.97512029807431
+      ],
+      "address": "Alemdar, Dr. Eminpaşa Sk. No:7, 34400 Fatih/İstanbul",
+      "postalCode": "34400",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyna20000erx3ekrsue0tm",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 50,
+          "currency": "EUR",
+          "businessId": "cm9xyna20000crx3ej7babj7o"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyjkub0006rx3e6ogq56b3",
+      "name": "Sultan Süleyman Hamam Traditional Turkish Bath - KATE & AZRA SULTAN",
+      "email": "cm9xyjkub0007rx3er4pisddf",
+      "coordinates": [
+        41.009553739827,
+        28.97604380551038
+      ],
+      "address": "Alemdar, Çatalçeşme Sk. no:23, 34110 Fatih/İstanbul",
+      "postalCode": "34110",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyjkub0008rx3eivqq37jk",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 50,
+          "currency": "EUR",
+          "businessId": "cm9xyjkub0006rx3e6ogq56b3"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyx4ak000rrx3em91zyl5n",
+      "name": "Tarihi Arabacılar Hamamı (Balat)",
+      "email": "cm9xyx4ak000srx3e049xcep0",
+      "coordinates": [
+        41.03598125817552,
+        28.94317727242266
+      ],
+      "address": "Ayvansaray, Yatağan hamam sokak no:78, 34080 Fatih/İstanbul",
+      "postalCode": "34080",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyx4ak000trx3e4r8w62ju",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 350,
+          "currency": "TRY",
+          "businessId": "cm9xyx4ak000rrx3em91zyl5n"
+        }
+      ]
+    },
+    {
+      "id": "cm9xz9g10001frx3es0v0qefe",
+      "name": "DİBEKLİ GRAND HAMAM",
+      "email": "cm9xz9g10001grx3eta438yf7",
+      "coordinates": [
+        41.00870383885601,
+        28.96551007916854
+      ],
+      "address": "Beyazıt, Mimar Kemalettin, Dibekli Cami Sk. No:11, 34130 Fatih/İstanbul",
+      "postalCode": "34130",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xz9g10001hrx3evc7vr93e",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 40,
+          "currency": "EUR",
+          "businessId": "cm9xz9g10001frx3es0v0qefe"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyl8460009rx3enu5mm0rc",
+      "name": "Sultan Süleyman Hamam Traditional Turkish Bath - Golden Royal",
+      "email": "cm9xyl846000arx3e3n4w3fgk",
+      "coordinates": [
+        41.00774691293424,
+        28.97187287295944
+      ],
+      "address": "Binbirdirek, Peykhane Cd. No:19, 34122 Fatih/İstanbul",
+      "postalCode": "34122",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyl846000brx3ekmru5jel",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 50,
+          "currency": "EUR",
+          "businessId": "cm9xyl8460009rx3enu5mm0rc"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyzcph000urx3equ7x2jpk",
+      "name": "ALATURKA HAMAM",
+      "email": "cm9xyzcph000vrx3ewjio41wt",
+      "coordinates": [
+        41.00641903837854,
+        28.97458095284533
+      ],
+      "address": "Binbirdirek, Terzihane Sk. No15, 34122 Fatih/İstanbul",
+      "postalCode": "34122",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyzcph000wrx3esrsu74st",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 55,
+          "currency": "EUR",
+          "businessId": "cm9xyzcph000urx3equ7x2jpk"
+        }
+      ]
+    },
+    {
+      "id": "cm9mpz9sn000crxr1pk4ttg7l",
+      "name": "Bulgurlu Hamamı",
+      "email": "bulgur@hamam.com",
+      "coordinates": [
+        41.01887815271228,
+        29.07094955247558
+      ],
+      "address": "Bulgurlu, Bulgurlu Cd. No:47 D:C, 34696 Üsküdar/İstanbul",
+      "postalCode": "34696",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mpz9sn000drxr1trkzkuij",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 250,
+          "currency": "TRY",
+          "businessId": "cm9mpz9sn000crxr1pk4ttg7l"
+        }
+      ]
+    },
+    {
+      "id": "cm9xzafku001irx3ezwal7ucs",
+      "name": "ŞEHZADE HAMAM",
+      "email": "cm9xzafku001jrx3ey90dbdp2",
+      "coordinates": [
+        41.00859669354971,
+        28.96525703498721
+      ],
+      "address": "Büyük Haydar Efendi Sokak No:28, Mimar Kemalettin Mah, Beyazıt, 34130 Fatih/İstanbul",
+      "postalCode": "34130",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xzafku001krx3eauulmgxa",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 40,
+          "currency": "EUR",
+          "businessId": "cm9xzafku001irx3ezwal7ucs"
+        }
+      ]
+    },
+    {
+      "id": "cm9xz8hd3001crx3ekwp0hk4g",
+      "name": "SPA Hamam and massage (Mevlana bazaar)",
+      "email": "cm9xz8hd3001drx3ewy9h2eoa",
+      "coordinates": [
+        41.00508369981159,
+        28.98040338289088
+      ],
+      "address": "Cankurtaran, Akbıyık Cd. 47a, 34122 Fatih/İstanbul",
+      "postalCode": "34122",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xz8hd3001erx3e0n82u087",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 2000,
+          "currency": "TRY",
+          "businessId": "cm9xz8hd3001crx3ekwp0hk4g"
+        }
+      ]
+    },
+    {
+      "id": "cm9xz278b000xrx3eb4ohaq2k",
+      "name": "Kösem Sultan Hamam (Byzantium Hotel)",
+      "email": "cm9xz278b000yrx3exr48aw9l",
+      "coordinates": [
+        41.005666639956,
+        28.98134940865276
+      ],
+      "address": "Cankurtaran, Akbıyık Cd. no :29, 34000 Fatih/İstanbul",
+      "postalCode": "34000",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xz278b000zrx3e5b2cxt4c",
+          "name": "Altin Paket",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 70,
+          "currency": "EUR",
+          "businessId": "cm9xz278b000xrx3eb4ohaq2k"
+        }
+      ]
+    },
+    {
+      "id": "cm9mqdpwx000xrxr1ywtnsj3k",
+      "name": "Davutpaşa Hamamı",
+      "email": "davut@hamam.com",
+      "coordinates": [
+        41.00550720128907,
+        28.95090429192038
+      ],
+      "address": "Cerrahpaşa, Org. Abdurrahman Nafiz Gürman Cd. No:21, 34098 Fatih/İstanbul",
+      "postalCode": "34098",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mqdpwx000yrxr1fzzqx4oy",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 400,
+          "currency": "TRY",
+          "businessId": "cm9mqdpwx000xrxr1ywtnsj3k"
+        }
+      ]
+    },
+    {
+      "id": "cm9xz4kyx0013rx3e0j37e5b5",
+      "name": "Damla Spa Center Massage Sauna Turkish Bath",
+      "email": "cm9xz4kyx0014rx3eimjaqbbb",
+      "coordinates": [
+        41.0115988626819,
+        28.95725065828695
+      ],
+      "address": "Grand Washington hotel Gençtürk caddesi, Ağa Ykş. No:3, 34134 Fatih/İstanbul",
+      "postalCode": "34134",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xz4kyx0015rx3erowinin0",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 1500,
+          "currency": "TRY",
+          "businessId": "cm9xz4kyx0013rx3e0j37e5b5"
+        }
+      ]
+    },
+    {
+      "id": "cm9xz5r9k0016rx3ek1r5ejzo",
+      "name": "SULTAN HAMAM & SPA",
+      "email": "cm9xz5r9k0017rx3epe4b8n4m",
+      "coordinates": [
+        41.01268043805793,
+        28.97859172148955
+      ],
+      "address": "Hoca Paşa, Erdoğan Sk. No:11, 34110 Fatih/İstanbul",
+      "postalCode": "34110",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xz5r9l0018rx3enu2gow2g",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 2000,
+          "currency": "TRY",
+          "businessId": "cm9xz5r9k0016rx3ek1r5ejzo"
+        }
+      ]
+    },
+    {
+      "id": "cm9xz7bvy0019rx3em64zjl7r",
+      "name": "Felicity Hamam Traditional Turkish Bath Old City Sultanahmet",
+      "email": "cm9xz7bvy001arx3e0nzzck0u",
+      "coordinates": [
+        41.01467958734744,
+        28.97852250616179
+      ],
+      "address": "Hoca Paşa, İstasyon Arkası Sk. No:15, 34110 Fatih/İstanbul",
+      "postalCode": "34110",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xz7bvy001brx3estkmmohb",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 2000,
+          "currency": "TRY",
+          "businessId": "cm9xz7bvy0019rx3em64zjl7r"
+        }
+      ]
+    },
+    {
+      "id": "cm9mpxr4w0009rxr1q5wmbrvs",
+      "name": "Mihrimah Sultan Hamamı",
+      "email": "mihri@hamam.com",
+      "coordinates": [
+        41.02908311746582,
+        28.9367632560908
+      ],
+      "address": "Karagümrük, Fevzi Paşa Cd. No:333 D:333, 34091 Fatih/İstanbul",
+      "postalCode": "34091",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mpxr4y000arxr18dg49lb7",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 450,
+          "currency": "TRY",
+          "businessId": "cm9mpxr4w0009rxr1q5wmbrvs"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyw63v000orx3e75jorl78",
+      "name": "Yıldız Erkek Hamamı",
+      "email": "cm9xyw63v000prx3e7t6qgr4z",
+      "coordinates": [
+        41.04464273356886,
+        28.8797504626245
+      ],
+      "address": "Kazım Karabekir, 1001. Sk. 8a, 34225 Esenler/İstanbul",
+      "postalCode": "34225",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyw63v000qrx3esdkx6vzm",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 300,
+          "currency": "TRY",
+          "businessId": "cm9xyw63v000orx3e75jorl78"
+        }
+      ]
+    },
+    {
+      "id": "cm9xz3e4p0010rx3eiaf903em",
+      "name": "Sultan Selim Hamam Traditional Turkish Bath",
+      "email": "cm9xz3e4p0011rx3eiu0v4dlh",
+      "coordinates": [
+        41.01155665315635,
+        28.9567034650141
+      ],
+      "address": "Kemal Paşa, Ağa Ykş. No:11, 34134 Fatih/İstanbul",
+      "postalCode": "34134",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xz3e4p0012rx3e81dcgz15",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 65,
+          "currency": "EUR",
+          "businessId": "cm9xz3e4p0010rx3eiaf903em"
+        }
+      ]
+    },
+    {
+      "id": "cm9xytp1p000lrx3e23zi9asz",
+      "name": "Beethoven Premium Spa Massage Hamam Turkish Bath",
+      "email": "cm9xytp1p000mrx3e7pky9cjl",
+      "coordinates": [
+        41.01173144010416,
+        28.95726638961671
+      ],
+      "address": "Kemal Paşa, Ağa Ykş. No:6, 34100 Fatih/İstanbul",
+      "postalCode": "34100",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xytp1p000nrx3ew7o7ltw2",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 2000,
+          "currency": "TRY",
+          "businessId": "cm9xytp1p000lrx3e23zi9asz"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyg31o0000rx3euhoawk4e",
+      "name": "Hacı Kadın Hamamı",
+      "email": "cm9xyg31o0001rx3e9aydyiak",
+      "coordinates": [
+        41.00052062586855,
+        28.92758617009969
+      ],
+      "address": "Koca Mustafapaşa, Hacı Kadın Cd. No:85, 34098 Fatih/İstanbul",
+      "postalCode": "34098",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyg31p0002rx3exj427xn0",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 500,
+          "currency": "TRY",
+          "businessId": "cm9xyg31o0000rx3euhoawk4e"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyr1fs000frx3eee27lafq",
+      "name": "Sultan Suleyman Hamam Palace",
+      "email": "cm9xyr1fs000grx3eydaq1cs6",
+      "coordinates": [
+        41.00400848391975,
+        28.97168452241485
+      ],
+      "address": "Küçük Ayasofya, Kadırga Limanı Cd. No:137, 34122 Fatih/İstanbul",
+      "postalCode": "34122",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyr1fs000hrx3e6vwhs951",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 50,
+          "currency": "EUR",
+          "businessId": "cm9xyr1fs000frx3eee27lafq"
+        }
+      ]
+    },
+    {
+      "id": "cm9xysipj000irx3etl770ls9",
+      "name": "Lapis Inn Traditional Turkish Bath&Spa",
+      "email": "cm9xysipj000jrx3ea1ejy466",
+      "coordinates": [
+        41.00849536892592,
+        28.97637651898808
+      ],
+      "address": "Lapis Inn Hotel&Spa, Alemdar, Ticarethane Çk., 34110 Fatih/İstanbul",
+      "postalCode": "34110",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xysipj000krx3e08jax9cj",
+          "name": "Geleneksel Hamam Paketi",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 2000,
+          "currency": "TRY",
+          "businessId": "cm9xysipj000irx3etl770ls9"
+        }
+      ]
+    },
+    {
+      "id": "cm9mqhgyc0013rxr1z4k6ugj3",
+      "name": "Tarihi Örücüler Hamamı Turkısh Bath & Sauna",
+      "email": "orucu@hamam.com",
+      "coordinates": [
+        41.01287213387197,
+        28.96765912612262
+      ],
+      "address": "Mercan, Örücüler Sokak Kapalıçarşı No:32, 34116 Fatih/İstanbul",
+      "postalCode": "34116",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mqhgyd0014rxr1x1hmeyvd",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 800,
+          "currency": "TRY",
+          "businessId": "cm9mqhgyc0013rxr1z4k6ugj3"
+        }
+      ]
+    },
+    {
+      "id": "cm9mqg0j80010rxr1ihsofhql",
+      "name": "Tarihi Nişanca Hamamı",
+      "email": "nisan@hamam.com",
+      "coordinates": [
+        41.00666448651371,
+        28.9644325906624
+      ],
+      "address": "Nişanca, Türkeli Cd. No:45, 34130 Fatih/İstanbul",
+      "postalCode": "34130",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mqg0j80011rxr1fn8hc2gi",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 800,
+          "currency": "TRY",
+          "businessId": "cm9mqg0j80010rxr1ihsofhql"
+        }
+      ]
+    },
+    {
+      "id": "cm9mpp54c0006rxr1knnn56st",
+      "name": "Tarihi Küçük Hamam",
+      "email": "kucuk@hamam.com",
+      "coordinates": [
+        41.00946942719969,
+        28.93133470820334
+      ],
+      "address": "Seyyid Ömer Mahallesi Altımermer Caddesi Emrullah Efendi Aralığı No.1, 34098 Fatih",
+      "postalCode": "34098",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mpp54d0007rxr1y4skeww8",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 300,
+          "currency": "TRY",
+          "businessId": "cm9mpp54c0006rxr1knnn56st"
+        }
+      ]
+    },
+    {
+      "id": "cm9mq0f20000frxr1ggswhtf6",
+      "name": "Üsküdar Valide-i Atik Hamamı",
+      "email": "valide@hamam.com",
+      "coordinates": [
+        41.01821179510661,
+        29.02205725615183
+      ],
+      "address": "Valide-i Atik, Eski Toptaşı Cd. No:98, 34664 Üsküdar/İstanbul",
+      "postalCode": "34664",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mq0f20000grxr1cxgww14u",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 350,
+          "currency": "TRY",
+          "businessId": "cm9mq0f20000frxr1ggswhtf6"
+        }
+      ]
+    },
+    {
+      "id": "cm9mq2pkv000irxr1xtx6yrbe",
+      "name": "Çinili Hamam",
+      "email": "cinili@hamam.com",
+      "coordinates": [
+        41.01985946572951,
+        29.0289618402478
+      ],
+      "address": "Valide-i Atik, Çinili Hamam Sk. No:47, 34664 Üsküdar/İstanbul",
+      "postalCode": "34664",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mq2pkv000jrxr1gz6h851n",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 400,
+          "currency": "TRY",
+          "businessId": "cm9mq2pkv000irxr1xtx6yrbe"
+        }
+      ]
+    },
+    {
+      "id": "cm9mq8zrl000rrxr17czbiq3b",
+      "name": "Horhor Hamamı",
+      "email": "horhor@hamam.com",
+      "coordinates": [
+        41.01154069466226,
+        28.95088418489443
+      ],
+      "address": "İskenderpaşa, 34091 Fatih/İstanbul",
+      "postalCode": "34091",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mq8zrm000srxr1obpvhf7s",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 300,
+          "currency": "TRY",
+          "businessId": "cm9mq8zrl000rrxr17czbiq3b"
+        }
+      ]
+    },
+    {
+      "id": "cm9xyi7t60003rx3egfa9q5wt",
+      "name": "Sofular Hamamı",
+      "email": "cm9xyi7t60004rx3ev7eiikeo",
+      "coordinates": [
+        41.0137290663296,
+        28.94930345185574
+      ],
+      "address": "İskenderpaşa, Sofular Cd. No:28, 34080 Fatih/İstanbul",
+      "postalCode": "34080",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9xyi7t60005rx3evoksd689",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 400,
+          "currency": "TRY",
+          "businessId": "cm9xyi7t60003rx3egfa9q5wt"
+        }
+      ]
+    },
+    {
+      "id": "cm9mhiyaz0003rxr11p8nubxf",
+      "name": "Kadırga Hamamı",
+      "email": "info@hamam.com",
+      "coordinates": [
+        41.00530390845014,
+        28.96905595423883
+      ],
+      "address": "Şehsuvar Bey, Kadırga Limanı Cd. No:69, 34130 Fatih/İstanbul",
+      "postalCode": "4130",
+      "workingHours": [
+        "07:30",
+        "00:00"
+      ],
+      "blockedHours": [],
+      "status": "PENDING",
+      "products": [
+        {
+          "id": "cm9mhiyb00004rxr1gk6qoq6x",
+          "name": "Giriş",
+          "desc": "İşletmede bulunan tüm fiziksel imkanlardan faydalanabilirsiniz. fakat herhangi bir hizmet bu paket dahilinde değildir. örnek olarak masaj, kese, v.b. hizmetler bu pakete dahil değildir.",
+          "duration": 121,
+          "price": 800,
+          "currency": "TRY",
+          "businessId": "cm9mhiyaz0003rxr11p8nubxf"
+        }
+      ]
+    }
+  ]
+}
