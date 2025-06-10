@@ -1,12 +1,10 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { CiCirclePlus } from "react-icons/ci";
 import DrawerComponent from "../Drawer";
 import { useState, useEffect } from "react";
 import { TBusiness, TProduct } from "@/prisma/types";
 import { CiLocationOn } from "react-icons/ci";
-import DropdownComponent from "../dropdown";
 import { GoDotFill } from "react-icons/go";
 import { FaAngleRight } from "react-icons/fa6";
 
@@ -66,13 +64,11 @@ const Booking = ({ business }: { business: TBusiness }) => {
 
       <div className="flex flex-col gap-4 mx-3 mt-5">
         {business?.products.map((product: TProduct) => (
-          <div className="flex  gap-2 border items-center justify-between rounded">
-            <Accordion
-              type="single"
-              collapsible
-              key={product.id}
-              className="w-full m-0 p-0"
-            >
+          <div
+            key={product.id}
+            className="flex  gap-2 border items-center justify-between rounded"
+          >
+            <Accordion type="single" collapsible className="w-full m-0 p-0">
               <AccordionItem
                 className="flex flex-col items-center justify-between w-full "
                 value={`item-${product.id}`}
