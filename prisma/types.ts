@@ -7,6 +7,7 @@ export interface TProduct {
   currency: string;
   price: number;
   businessId: string;
+  desc: string;
 }
 
 export interface TBooking {

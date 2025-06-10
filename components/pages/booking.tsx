@@ -6,6 +6,16 @@ import DrawerComponent from "../Drawer";
 import { useState, useEffect } from "react";
 import { TBusiness, TProduct } from "@/prisma/types";
 import { CiLocationOn } from "react-icons/ci";
+import DropdownComponent from "../dropdown";
+import { GoDotFill } from "react-icons/go";
+import { FaAngleRight } from "react-icons/fa6";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Booking = ({ business }: { business: TBusiness }) => {
   const router = useRouter();
@@ -56,19 +66,46 @@ const Booking = ({ business }: { business: TBusiness }) => {
 
       <div className="flex flex-col gap-4 mx-3 mt-5">
         {business?.products.map((product: TProduct) => (
-          <button
-            key={product.id}
-            className="flex gap-2 border items-center justify-between px-5 py-2 rounded"
-            onClick={() => handleProductClick(product)}
-          >
-            <div className="flex gap-2 items-center">
-              <h2>{product.name}</h2>
-              <p className="text-sm">
-                ({product.price} {product.currency})
-              </p>
-            </div>
-            <CiCirclePlus />
-          </button>
+          <div className="flex  gap-2 border items-center justify-between rounded">
+            <Accordion
+              type="single"
+              collapsible
+              key={product.id}
+              className="w-full m-0 p-0"
+            >
+              <AccordionItem
+                className="flex flex-col items-center justify-between w-full "
+                value={`item-${product.id}`}
+              >
+                <div className="flex items-center justify-between w-full px-2 py-1">
+                  <div className="flex items-start flex-col">
+                    <h2>{product.name}</h2>
+                    <div className="flex text-xs gap-1">
+                      <AccordionTrigger asChild className="p-0 m-0">
+                        <button className="underline p-0 text-xs">
+                          detaylar
+                        </button>
+                      </AccordionTrigger>
+                      <GoDotFill size={7} className="my-auto" />
+                      <p>
+                        {product.price} {product.currency}
+                      </p>
+                    </div>
+                  </div>
+                  <FaAngleRight
+                    className="p-1"
+                    size={24}
+                    onClick={() => handleProductClick(product)}
+                  />
+                </div>
+
+                {/* Accordion content below the product box */}
+                <AccordionContent className="px-2 pb-4 text-xs">
+                  {product.desc}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         ))}
       </div>
 
